@@ -26,64 +26,6 @@ header {
   flex-grow: 1;
 }
 
-.register-signin-div {
-  margin: auto;
-  display: flex;
-  justify-content: space-between;
-  width: 200px;
-  margin-top: 16px;
-  margin-bottom: 50px;
-}
-
-.register {
-  background-color: rgb(163, 255, 224);
-}
-
-.sign-in {
-  background-color: rgb(160, 219, 255);
-}
-
-.register,
-.sign-in {
-  cursor: pointer;
-  border-style: solid;
-  border-width: 1px;
-  border-radius: 4px;
-  padding: 10px 20px;
-}
-
-.banner-button-div {
-  margin: auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.left-arrow {
-  margin-right: 16px;
-}
-
-.carousel {
-  height: 200px;
-  width: 200px;
-  border-style: solid;
-  border-width: 1px;
-}
-
-.right-arrow {
-  margin-left: 16px;
-}
-
-.right-arrow,
-.left-arrow {
-  background-color: rgb(230, 202, 77);
-  padding: 10px;
-  border-style: solid;
-  border-width: 1px;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
 footer {
   text-align: center;
   align-content: center;
