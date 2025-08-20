@@ -16,46 +16,34 @@
   <body>
     <div class="page-wrapper">
       <header>
-        HotView Labs
-        <div class="logo-div">
-          <a href="index.html"
-            ><img
-              class="logo"
-              src="images/"
-              alt="logo of the website"
-              aria-label="Link to home"
-          /></a>
+        <div>
+          <p class="logo-text">HotView&#10022;</p>
+          <p class="logo-text">&#10022;Labs</p>
+          <a class="alt-logo" href="index.html"></a>
         </div>
-        <!-- mobile navigation -->
-        <input type="checkbox" id="menu-checkbox" />
-        <label for="menu-checkbox" class="hamburger-icon"
-          ><i class="fas fa-bars fa-2x"
-            ><i class="mobile-nav-icon">hamburger-icon</i></i
-          ></label
-        >
-        <!--navigation-->
-        <nav>
-          <a href="index.html" aria-label="Link to home" class="current"
-            >Home</a
-          >
-
-          <a href="checkout/index.html" aria-label="Link to checkout"
-            >Checkout</a
-          >
-          <div class="basket-container">
-            <button id="basketToggle" aria-label="Open cart">
-              Cart
-              <i
-                class="fas fa-caret-down"
-                aria-label="arrow down, open cart"
-              ></i>
-            </button>
-            <div id="basketDropdown" class="basket-dropdown hidden">
-              <ul id="basketList"></ul>
-            </div>
-          </div>
-        </nav>
       </header>
+      <!-- mobile navigation -->
+      <input type="checkbox" id="menu-checkbox" />
+      <label for="menu-checkbox" class="hamburger-icon"
+        ><i class="fas fa-bars fa-2x"
+          ><i class="mobile-nav-icon">hamburger-icon</i></i
+        ></label
+      >
+      <!--navigation-->
+      <nav>
+        <a href="index.html" aria-label="Link to home" class="current">Home</a>
+
+        <a href="checkout/index.html" aria-label="Link to checkout">Checkout</a>
+        <div class="basket-container">
+          <button id="basketToggle" aria-label="Open cart">
+            Cart
+            <i class="fas fa-caret-down" aria-label="arrow down, open cart"></i>
+          </button>
+          <div id="basketDropdown" class="basket-dropdown hidden">
+            <ul id="basketList"></ul>
+          </div>
+        </div>
+      </nav>
       <main class="main-page">
         <div class="register-signin-div">
           <button class="register">Register</button>
