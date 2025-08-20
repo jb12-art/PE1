@@ -27,15 +27,13 @@ header {
   background-color: black;
 }
 
-.alt-logo {
-  display: none;
-}
-
 .logo-text {
   background-color: black;
   color: white;
   margin: 0px;
   font-size: 32px;
+  font-weight: bold;
+  text-decoration: none;
 }
 
 .main-page {
