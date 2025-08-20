@@ -1,3 +1,8 @@
+/* All styles that can be shared is put here */
+
+@import url("./product-feed-page.css");
+@import url("./product.css");
+
 body {
   margin: 0 auto;
   /* min-height: 100vh; is it needed here as well as .page-wrapper?*/
@@ -24,6 +29,80 @@ header {
 
 .main-page {
   flex-grow: 1;
+}
+
+/* Cart/ basket */
+.basket-container {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+}
+
+#basketToggle {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.basket-dropdown {
+  position: absolute;
+  left: 0em; /* this moves the dropdown to the left side */
+  background-color: white;
+  min-width: 200px;
+  border: 1px solid #000000;
+  z-index: 1000;
+  padding: 15px;
+}
+
+.basket-dropdown ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.basket-dropdown li {
+  font-size: 1rem;
+  margin-bottom: 14px;
+}
+
+.hidden {
+  display: none;
+}
+/* End of cart/ basket */
+
+.add-to-cart-button {
+  padding: 6px 16px;
+}
+
+nav,
+#menu-checkbox {
+  display: none;
+}
+
+#menu-checkbox:checked ~ nav {
+  display: block;
+}
+
+nav {
+  position: absolute;
+  background: lightgrey;
+  left: 0px;
+  margin: auto;
+}
+
+.mobile-nav-icon {
+  display: none;
+}
+
+nav a {
+  display: block;
+  color: #000;
+  padding: 10px 20px;
+  font-size: 1rem;
+  text-decoration: none;
 }
 
 footer {

@@ -3,15 +3,59 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="images/favicon-32x32.png" />
     <title>HVL | Product Feed Page</title>
     <link rel="stylesheet" href="css/styles.css" />
-    <link rel="stylesheet" href="css/product-feed-page.css" />
-    <link rel="stylesheet" href="css/product.css" />
+    <!-- font awesome link -->
+    <script
+      src="https://kit.fontawesome.com/f96e83bcf8.js"
+      crossorigin="anonymous"
+    ></script>
     <script defer src="js/script.js"></script>
   </head>
   <body>
     <div class="page-wrapper">
-      <header>HotView Labs</header>
+      <header>
+        HotView Labs
+        <div class="logo-div">
+          <a href="index.html"
+            ><img
+              class="logo"
+              src="images/"
+              alt="logo of the website"
+              aria-label="Link to home"
+          /></a>
+        </div>
+        <!-- mobile navigation -->
+        <input type="checkbox" id="menu-checkbox" />
+        <label for="menu-checkbox" class="hamburger-icon"
+          ><i class="fas fa-bars fa-2x"
+            ><i class="mobile-nav-icon">hamburger-icon</i></i
+          ></label
+        >
+        <!--navigation-->
+        <nav>
+          <a href="index.html" aria-label="Link to home" class="current"
+            >Home</a
+          >
+
+          <a href="checkout/index.html" aria-label="Link to checkout"
+            >Checkout</a
+          >
+          <div class="basket-container">
+            <button id="basketToggle" aria-label="Open cart">
+              Cart
+              <i
+                class="fas fa-caret-down"
+                aria-label="arrow down, open cart"
+              ></i>
+            </button>
+            <div id="basketDropdown" class="basket-dropdown hidden">
+              <ul id="basketList"></ul>
+            </div>
+          </div>
+        </nav>
+      </header>
       <main class="main-page">
         <div class="register-signin-div">
           <button class="register">Register</button>
@@ -22,8 +66,12 @@
           <div class="carousel">Carousel showing the 3 latest products</div>
           <button class="right-arrow">&#x1F87A;</button>
         </div>
+        <!-- 1 id, and 2 classes -->
+        <div id="loadingIndicator" class="loading hidden">
+          Loading products.
+        </div>
 
-        <div class="products-grid"></div>
+        <div id="productContainer" class="product-container"></div>
       </main>
       <footer>Footer</footer>
     </div>
