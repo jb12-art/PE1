@@ -3,28 +3,59 @@
 // script.js is styled in product.css
 
 const API_URL = "https://v2.api.noroff.dev/online-shop";
+
+// ------ DOM refs -------
 const container = document.querySelector("#productContainer");
 const loadingIndicator = document.querySelector("#loadingIndicator"); // loading message
 
-let allProducts = []; // store all products globally
+// Carousel Banner
+const carousel = document.querySelector("#carousel");
+const prevBtn = document.querySelector("#prevBtn");
+const nextBtn = document.querySelector("#nextBtn");
 
+// Basket
+const basketToggle = document.getElementById("basketToggle");
+const basketDropdown = document.getElementById("basketDropdown");
+const basketList = document.getElementById("basketList");
+
+// ---- State ----
+let allProducts = []; // store all products globally
+let latestProducts = [];
+let currentIndex = 0;
+
+// Fetch + Render products
 async function fetchAndCreateProducts() {
   try {
     loadingIndicator.classList.remove("hidden"); // show 'Loading products.' message if API products is loading.
     const response = await fetch(API_URL);
+    if (!response.ok) {
+      throw new Error(`HTTP ${response.status}`);
+    }
     const data = await response.json();
-    allProducts = data.data; // Store fetched products
+    allProducts = Array.isArray(data?.data) ? data.data : []; // Store fetched products
 
+    // Render product grid
     displayProducts(allProducts); // Display all products first.
+
+    // Render top banner carousel (3 latest)
+    displayCarousel(allProducts); // moved here so it only runs on success
   } catch (err) {
     console.error("Error fetching products:", err);
     container.innerHTML =
       "<p class='error-message'>Failed to load products. Please refresh the page or try again later.</p>"; // styles in, product.css
+    // show a fallback error in the carousel too
+
+    if (carousel) {
+      carousel.innerHTML = "<p class='error-message'>No banner available.</p>";
+    }
   } finally {
     loadingIndicator.classList.add("hidden"); // Hide loading
   }
 }
 
+// =======================
+// Product grid rendering
+// =======================
 function displayProducts(products) {
   container.innerHTML = ""; // Clear previous products
 
@@ -45,24 +76,26 @@ function displayProducts(products) {
     price.className = "price";
     addToCartBtn.className = "add-to-cart-button"; // add product to cart and checkout
 
-    image.src = product.image.url;
-    image.alt = product.image.alt;
+    // Defensive fallback
+    const imgUrl = product?.image?.url || "";
+    const imgAlt = product?.image?.alt || product?.title || "Product image";
+    image.src = imgUrl;
+    image.alt = imgAlt;
 
     // Make title link to product page
     const titleLink = document.createElement("a");
     titleLink.href = `product/index.html?id=${product.id}`;
-    description.textContent = product.description;
-    titleLink.textContent = product.title;
+    titleLink.textContent = product.title || "Untitled product";
     title.appendChild(titleLink);
 
-    price.textContent = `$${product.price}`;
+    description.textContent = product.description || "";
+    price.textContent = `$${Number(product.price || 0).toFixed(2)}`;
+
     addToCartBtn.textContent = "Add to Cart"; // add product to cart and checkout
 
     // add product to cart and checkout
     // Add to cart handler
-    addToCartBtn.addEventListener("click", () => {
-      addToCart(product);
-    });
+    addToCartBtn.addEventListener("click", () => addToCart(product));
 
     content.appendChild(title);
     content.appendChild(description);
@@ -74,26 +107,102 @@ function displayProducts(products) {
     container.appendChild(box);
   });
 }
+// =====================
+// Carousel (3 latest)
+// ====================
+function displayCarousel(products) {
+  if (!carousel) return;
 
+  carousel.innerHTML = "";
+
+  // Take the last 3 products (treating "latest" as the last in the array)
+  latestProducts = Array.isArray(products) ? products.slice(-3) : [];
+
+  if (latestProducts.length === 0) {
+    carousel.innerHTML = "<p>No products to show.</p>";
+    return;
+  }
+
+  latestProducts.forEach((product, index) => {
+    const item = document.createElement("div");
+    item.className = "carousel-item";
+
+    const imgUrl = product?.image?.url || "";
+    const imgAlt = product?.image?.alt || product?.title || "Product image";
+
+    // Test: Debug log for each product
+    console.log("Carousel item;", {
+      index,
+      id: product.id,
+      title: product.title,
+      imgUrl,
+    });
+
+    item.innerHTML = `
+    <a href="product/index.html?id=${product.id}">
+    <img 
+    src="${imgUrl}" 
+    alt="${imgAlt}"
+    onerror="this.oneror=null; this.src?'https:/via.placeholder.com/300x200?text=No+Image';"
+    >
+    <h3>${product.title || "Untitled product"}</h3>
+    <p>$${Number(product.price || 0).toFixed(2)}</p>
+    </a>
+    `;
+    carousel.appendChild(item);
+  });
+
+  // Start at first item every time we refresh
+  currentIndex = 0;
+  updateCarousel();
+}
+
+function updateCarousel() {
+  const items = carousel ? carousel.querySelectorAll(".carousel-item") : [];
+  if (!items.length) return;
+
+  items.forEach((item, index) => {
+    item.style.transform = `translateX(${(index - currentIndex) * 100}%)`;
+  });
+}
+
+// Prev/Next handlers with looping
+if (prevBtn) {
+  prevBtn.addEventListener("click", () => {
+    if (!latestProducts.length) return;
+    currentIndex =
+      (currentIndex - 1 + latestProducts.length) % latestProducts.length;
+    updateCarousel();
+  });
+}
+
+if (nextBtn) {
+  nextBtn.addEventListener("click", () => {
+    if (!latestProducts.length) return;
+    currentIndex = (currentIndex + 1) % latestProducts.length;
+    updateCarousel();
+  });
+}
+
+// ==========================
+// ----- Cart / Basket -----
+// ==========================
 // Alerting you when you add product to checkout
 function addToCart(product) {
-  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
   cart.push(product);
   localStorage.setItem("cart", JSON.stringify(cart));
   updateBasketDisplay(); // Refresh basket dropdown
   alert(`${product.title} added to cart`);
 }
 
-// basket
-const basketToggle = document.getElementById("basketToggle");
-const basketDropDown = document.getElementById("basketDropDown");
-const basketList = document.getElementById("basketList");
-
 // Toggle basket visibility
-basketToggle.addEventListener("click", () => {
-  basketDropDown.classList.toggle("hidden");
-  updateBasketDisplay();
-});
+if (basketToggle && basketDropdown) {
+  basketToggle.addEventListener("click", () => {
+    basketDropdown.classList.toggle("hidden");
+    updateBasketDisplay();
+  });
+}
 
 // Update basket UI
 function updateBasketDisplay() {
@@ -109,21 +218,24 @@ function updateBasketDisplay() {
   cart.forEach((item, index) => {
     const li = document.createElement("li");
     li.classList.add("basket-item");
-    li.innerHTML = `${item.title} - $${item.price} <button class="remove-button" data-index="${index}">Remove</button>`;
+    li.innerHTML = `
+      ${item.title} - $${(item.price || 0).toFixed(2)} 
+      <button class="remove-button" data-index="${index}">Remove</button>
+      `;
     basketList.appendChild(li);
   });
 
   // Attach event listeners to remove buttons
-  document.querySelectorAll(".remove-button").forEach((button) => {
+  basketList.querySelectorAll(".remove-button").forEach((button) => {
     button.addEventListener("click", (e) => {
-      const indexToRemove = parseInt(e.target.getAttribute("data-index"));
+      const indexToRemove = parseInt(e.target.getAttribute("data-index"), 10);
       removeFromCart(indexToRemove);
     });
   });
 }
 
 function removeFromCart(index) {
-  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
   cart.splice(index, 1); // Remove the item at the given index
   localStorage.setItem("cart", JSON.stringify(cart));
   updateBasketDisplay(); // Refresh UI
