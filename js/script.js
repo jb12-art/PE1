@@ -76,7 +76,6 @@ function displayProducts(products) {
     price.className = "price";
     addToCartBtn.className = "add-to-cart-button"; // add product to cart and checkout
 
-    // Defensive fallback
     const imgUrl = product?.image?.url || "";
     const imgAlt = product?.image?.alt || product?.title || "Product image";
     image.src = imgUrl;
@@ -123,32 +122,30 @@ function displayCarousel(products) {
     return;
   }
 
-  latestProducts.forEach((product, index) => {
+  latestProducts.forEach((product) => {
     const item = document.createElement("div");
     item.className = "carousel-item";
 
     const imgUrl = product?.image?.url || "";
     const imgAlt = product?.image?.alt || product?.title || "Product image";
 
-    // Test: Debug log for each product
-    console.log("Carousel item;", {
-      index,
-      id: product.id,
-      title: product.title,
-      imgUrl,
-    });
+    const link = document.createElement("a");
+    link.href = `product/index.html?id=${product.id}`;
 
-    item.innerHTML = `
-    <a href="product/index.html?id=${product.id}">
-    <img 
-    src="${imgUrl}" 
-    alt="${imgAlt}"
-    onerror="this.oneror=null; this.src?'https:/via.placeholder.com/300x200?text=No+Image';"
-    >
-    <h3>${product.title || "Untitled product"}</h3>
-    <p>$${Number(product.price || 0).toFixed(2)}</p>
-    </a>
-    `;
+    const img = document.createElement("img");
+    img.src = imgUrl;
+    img.alt = imgAlt;
+
+    const h3 = document.createElement("h3");
+    h3.textContent = product.title || "Untitled product";
+
+    const p = document.createElement("p");
+    p.textContent = `$${Number(product.price || 0).toFixed(2)}`;
+
+    link.appendChild(img);
+    link.appendChild(h3);
+    link.appendChild(p);
+    item.appendChild(link);
     carousel.appendChild(item);
   });
 
