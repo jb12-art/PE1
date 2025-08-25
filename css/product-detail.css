@@ -1,1 +1,53 @@
-/* product-detail.css is connected to product.html */
+/* product-detail.css is connected to product-box.html */
+
+/* product-box.css| Home page | Page 1 */
+/* Connected to index.html home page */
+/* The product box and what's inside */
+
+.product-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 25px;
+  justify-content: center;
+}
+
+.box {
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.box:hover {
+  border-width: 1px;
+  border-style: solid;
+}
+
+.image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.content {
+  padding: 15px;
+}
+
+.title {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.description {
+  color: black;
+}
+
+.price {
+  font-size: 1.1rem;
+  color: black;
+  font-weight: bold;
+}

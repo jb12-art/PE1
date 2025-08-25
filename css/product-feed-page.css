@@ -1,5 +1,6 @@
 /* Product Feed Page | Home page | Page 1 */
 /* product-feed-page.css is connected with index.html */
+/* Page 1 styles */
 
 /* ----------------------------- Mobile view ---------------------- */
 .register-signin-div {
@@ -81,3 +82,16 @@
   border-radius: 6px;
   cursor: pointer;
 }
+
+/* loading text on screen when API is loading */
+.hidden {
+  display: none;
+  text-align: center;
+  font-size: 2rem;
+}
+
+.loading {
+  text-align: center;
+  font-size: 2rem;
+}
+/* loading end. */

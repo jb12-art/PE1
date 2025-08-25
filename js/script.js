@@ -1,6 +1,6 @@
 // PE1 - API Endpoint Online Shop.
 // Connected to Home page.
-// script.js is styled in product.css
+// script.js is styled in product-box.css
 
 const API_URL = "https://v2.api.noroff.dev/online-shop";
 
@@ -83,7 +83,7 @@ function displayProducts(products) {
 
     // Make title link to product page
     const titleLink = document.createElement("a");
-    titleLink.href = `product/index.html?id=${product.id}`;
+    titleLink.href = `product/product.html?id=${product.id}`;
     titleLink.textContent = product.title || "Untitled product";
     title.appendChild(titleLink);
 

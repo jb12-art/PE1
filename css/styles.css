@@ -1,7 +1,8 @@
 /* All styles that can be shared is put here */
 
 @import url("./product-feed-page.css");
-@import url("./product.css");
+@import url("./product-box.css");
+@import url("./product-detail.css");
 
 body {
   margin: 0 auto;
@@ -80,11 +81,6 @@ header {
   margin-bottom: 14px;
 }
 
-.hidden {
-  display: none;
-  text-align: center;
-  font-size: 2rem;
-}
 /* End of cart/ basket */
 
 .add-to-cart-button {

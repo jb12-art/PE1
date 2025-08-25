@@ -1,2 +1,67 @@
+<!-- Specific Product Page -->
 <!-- product.html is connected with  Product-details.js -->
 <!-- styled in product-detail.css -->
+<!-- Single detail page of a product -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="images/favicon-32x32.png" />
+    <title>Specific Product Page</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+
+    <!-- font awesome link -->
+    <script
+      src="https://kit.fontawesome.com/f96e83bcf8.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- <script src="js/script.js" defer></script> -->
+    <script src="/product/product-detail.js" defer></script>
+  </head>
+  <body>
+    <div class="page-wrapper">
+      <header>
+        <div>
+          <a class="link" href="index.html"
+            ><p class="logo-text">&#10022;HotView</p>
+            <p class="logo-text">Labs&#10022;</p></a
+          >
+        </div>
+      </header>
+      <!-- mobile navigation -->
+      <input type="checkbox" id="menu-checkbox" />
+      <label for="menu-checkbox" class="hamburger-icon"
+        ><i class="fas fa-bars fa-2x"
+          ><i class="mobile-nav-icon">hamburger-icon</i></i
+        ></label
+      >
+      <!--navigation-->
+      <nav>
+        <a href="index.html" aria-label="Link to home" class="current"
+          >Specific Product page</a
+        >
+
+        <a href="checkout/index.html" aria-label="Link to checkout">Checkout</a>
+        <div class="basket-container">
+          <button id="basketToggle" aria-label="Open cart">
+            Cart
+            <i class="fas fa-caret-down" aria-label="arrow down, open cart"></i>
+          </button>
+          <div id="basketDropdown" class="basket-dropdown hidden">
+            <ul id="basketList"></ul>
+          </div>
+        </div>
+      </nav>
+      <main class="main-page">
+        <!-- 1 id, 2 classes. (#loadingIndicator code in script.js) (.loading and, .hidden is in product-feed-page.css /code for .hidden in script.js) -->
+        <div id="loadingIndicator" class="loading hidden">
+          Loading products.
+        </div>
+        <div id="productContainer" class="product-container"></div>
+      </main>
+      <footer>Footer</footer>
+    </div>
+  </body>
+</html>
