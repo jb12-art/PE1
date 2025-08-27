@@ -29,6 +29,7 @@
   padding: 10px 20px;
 }
 
+/* ------- Banner ------- */
 .banner-div {
   margin: auto;
   display: flex;
@@ -40,7 +41,7 @@
   margin-right: 16px;
 }
 
-/* ------- Carousel Banner ------- */
+/* Carousel Banner */
 .carousel {
   position: relative;
   overflow: hidden;

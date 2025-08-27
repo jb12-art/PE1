@@ -49,3 +49,7 @@
   color: black;
   font-weight: bold;
 }
+
+.add-to-cart-button {
+  padding: 6px 16px;
+}

@@ -4,14 +4,10 @@
 /* Connected to index.html home page */
 /* The product box and what's inside */
 
-.product-container {
+.product-detail-container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 25px;
-  justify-content: center;
 }
 
 .box {
@@ -27,7 +23,7 @@
 
 .image {
   width: 100%;
-  height: 200px;
+  height: 50%;
   object-fit: cover;
 }
 
@@ -50,4 +46,15 @@
   font-size: 1.1rem;
   color: black;
   font-weight: bold;
+}
+
+.back-button {
+  text-decoration: none;
+  color: black;
+  padding: 6px 16px;
+  border: 1px solid #000;
+  border-radius: 4px;
+  background-color: rgba(0, 255, 242, 0.253);
+  font-size: 15px;
+  margin-left: 10px;
 }

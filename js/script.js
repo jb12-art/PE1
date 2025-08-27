@@ -83,7 +83,7 @@ function displayProducts(products) {
 
     // Make title link to product page
     const titleLink = document.createElement("a");
-    titleLink.href = `product/product.html?id=${product.id}`;
+    titleLink.href = `product.html?id=${product.id}`;
     titleLink.textContent = product.title || "Untitled product";
     title.appendChild(titleLink);
 
@@ -130,7 +130,7 @@ function displayCarousel(products) {
     const imgAlt = product?.image?.alt || product?.title || "Product image";
 
     const link = document.createElement("a");
-    link.href = `product/index.html?id=${product.id}`;
+    link.href = `product.html?id=${product.id}`;
 
     const img = document.createElement("img");
     img.src = imgUrl;
