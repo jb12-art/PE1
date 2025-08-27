@@ -32,10 +32,10 @@ async function fetchAndCreateProducts() {
     const addToCartBtn = document.createElement("button"); // add product to cart and checkout
     const backButton = document.createElement("a");
 
-    box.className = "box";
+    box.className = "box-detail";
     image.className = "image";
     content.className = "content";
-    title.className = "title";
+    title.className = "title-detail";
     description.className = "description";
     price.className = "price";
     addToCartBtn.className = "add-to-cart-button"; // add product to cart and checkout
@@ -49,7 +49,7 @@ async function fetchAndCreateProducts() {
     description.textContent = product.description || "No description available";
     addToCartBtn.textContent = "Add to Cart";
     backButton.textContent = "Back to products";
-    backButton.href = "index.html";
+    backButton.href = "/index.html";
 
     box.appendChild(image);
     box.appendChild(content);

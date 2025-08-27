@@ -4,21 +4,17 @@
 /* Connected to index.html home page */
 /* The product box and what's inside */
 
+/* class="product-detail-container" is from product.html */
 .product-detail-container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
 }
 
-.box {
+.box-detail {
   background: white;
   border-radius: 8px;
   overflow: hidden;
-}
-
-.box:hover {
-  border-width: 1px;
-  border-style: solid;
 }
 
 .image {
@@ -31,7 +27,7 @@
   padding: 15px;
 }
 
-.title {
+.title-detail {
   margin: 0;
   font-size: 1.2rem;
   color: #333;

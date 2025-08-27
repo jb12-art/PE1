@@ -62,6 +62,7 @@ function displayProducts(products) {
   products.forEach((product) => {
     const box = document.createElement("div");
     const image = document.createElement("img");
+    const imageLink = document.createElement("a");
     const content = document.createElement("div");
     const title = document.createElement("h2");
     const description = document.createElement("p");
@@ -81,9 +82,13 @@ function displayProducts(products) {
     image.src = imgUrl;
     image.alt = imgAlt;
 
-    // Make title link to product page
+    // Wrap grid product image in a link
+    imageLink.href = `product/product.html?id=${product.id}`;
+    imageLink.appendChild(image);
+
+    // Title link to specific product page
     const titleLink = document.createElement("a");
-    titleLink.href = `product.html?id=${product.id}`;
+    titleLink.href = `product/product.html?id=${product.id}`;
     titleLink.textContent = product.title || "Untitled product";
     title.appendChild(titleLink);
 
@@ -96,13 +101,13 @@ function displayProducts(products) {
     // Add to cart handler
     addToCartBtn.addEventListener("click", () => addToCart(product));
 
+    // Assemble grid products
     content.appendChild(title);
     content.appendChild(description);
     content.appendChild(price);
-    content.appendChild(addToCartBtn); // add product to cart and checkout, styles in: styles.css
-    box.appendChild(image);
+    content.appendChild(addToCartBtn); // styled in: product-box.css
+    box.appendChild(imageLink);
     box.appendChild(content);
-
     container.appendChild(box);
   });
 }
@@ -123,33 +128,36 @@ function displayCarousel(products) {
   }
 
   latestProducts.forEach((product) => {
-    const item = document.createElement("div");
-    item.className = "carousel-item";
+    const box = document.createElement("div");
+    box.className = "carousel-item";
 
-    const imgUrl = product?.image?.url || "";
-    const imgAlt = product?.image?.alt || product?.title || "Product image";
+    const image = document.createElement("img");
+    image.className = "image";
+    image.src = product?.image?.url || "";
+    image.alt = product?.image?.alt || product?.title || "Product image";
+
+    const title = document.createElement("h2");
+    title.className = "title";
+    title.textContent = product.title || "Untitled product";
+
+    const price = document.createElement("p");
+    price.className = "price";
+    price.textContent = `$${Number(product.price || 0).toFixed(2)}`;
 
     const link = document.createElement("a");
-    link.href = `product.html?id=${product.id}`;
+    link.className = "banner-button-detail";
+    link.textContent = "See more details";
+    link.href = `product/product.html?id=${product.id}`;
 
-    const img = document.createElement("img");
-    img.src = imgUrl;
-    img.alt = imgAlt;
-
-    const h3 = document.createElement("h3");
-    h3.textContent = product.title || "Untitled product";
-
-    const p = document.createElement("p");
-    p.textContent = `$${Number(product.price || 0).toFixed(2)}`;
-
-    link.appendChild(img);
-    link.appendChild(h3);
-    link.appendChild(p);
-    item.appendChild(link);
-    carousel.appendChild(item);
+    // Assemble carousel
+    box.appendChild(image);
+    box.appendChild(title);
+    box.appendChild(price);
+    box.appendChild(link);
+    carousel.appendChild(box);
   });
 
-  // Start at first item every time we refresh
+  // Start at first product item every time we refresh
   currentIndex = 0;
   updateCarousel();
 }
