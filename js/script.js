@@ -65,16 +65,16 @@ function displayProducts(products) {
     const imageLink = document.createElement("a");
     const content = document.createElement("div");
     const title = document.createElement("h2");
-    const description = document.createElement("p");
     const price = document.createElement("p");
+    const dicountedPrice = document.createElement("p");
     const addToCartBtn = document.createElement("button"); // add product to cart and checkout
 
     box.className = "box";
     image.className = "image";
     content.className = "content";
     title.className = "title";
-    description.className = "description";
     price.className = "price";
+    dicountedPrice.className = "discounted-price";
     addToCartBtn.className = "add-to-cart-button"; // add product to cart and checkout
 
     const imgUrl = product?.image?.url || "";
@@ -83,17 +83,26 @@ function displayProducts(products) {
     image.alt = imgAlt;
 
     // Wrap grid product image in a link
-    imageLink.href = `product/product.html?id=${product.id}`;
+    imageLink.href = `../product/product.html?id=${product.id}`;
     imageLink.appendChild(image);
 
     // Title link to specific product page
     const titleLink = document.createElement("a");
-    titleLink.href = `product/product.html?id=${product.id}`;
+    titleLink.href = `../product/product.html?id=${product.id}`;
     titleLink.textContent = product.title || "Untitled product";
     title.appendChild(titleLink);
 
-    description.textContent = product.description || "";
-    price.textContent = `$${Number(product.price || 0).toFixed(2)}`;
+    // Handle price vs discounted-price
+    if (product.discountedPrice && product.discountedPrice < product.price) {
+      price.innerHTML = `<span class="old-price">$${Number(
+        product.price
+      ).toFixed(2)}</span>
+  <span class="discounted-price">$${Number(product.discountedPrice).toFixed(
+    2
+  )}</span>`;
+    } else {
+      price.textContent = `$${Number(product.price || 0).toFixed(2)}`;
+    }
 
     addToCartBtn.textContent = "Add to Cart"; // add product to cart and checkout
 
@@ -103,8 +112,8 @@ function displayProducts(products) {
 
     // Assemble grid products
     content.appendChild(title);
-    content.appendChild(description);
     content.appendChild(price);
+    content.appendChild(dicountedPrice);
     content.appendChild(addToCartBtn); // styled in: product-box.css
     box.appendChild(imageLink);
     box.appendChild(content);
@@ -142,12 +151,22 @@ function displayCarousel(products) {
 
     const price = document.createElement("p");
     price.className = "price";
-    price.textContent = `$${Number(product.price || 0).toFixed(2)}`;
+
+    if (product.discountedPrice && product.discountedPrice < product.price) {
+      price.innerHTML = `<span class="old-price">$${Number(
+        product.price
+      ).toFixed(2)}</span>
+      <span class="discounted-price">$${Number(product.discountedPrice).toFixed(
+        2
+      )}</span>`;
+    } else {
+      price.textContent = `$${Number(product.price || 0).toFixed(2)}`;
+    }
 
     const link = document.createElement("a");
     link.className = "banner-button-detail";
     link.textContent = "See more details";
-    link.href = `product/product.html?id=${product.id}`;
+    link.href = `../product/product.html?id=${product.id}`;
 
     // Assemble carousel
     box.appendChild(image);

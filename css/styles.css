@@ -6,7 +6,7 @@
 
 body {
   margin: 0 auto;
-  /* min-height: 100vh; is it needed here as well as .page-wrapper?*/
+  min-height: 100vh;
   font-family: Arial, Helvetica, sans-serif;
   box-sizing: border-box;
 }

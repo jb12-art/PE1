@@ -40,14 +40,19 @@
   margin-bottom: 10px;
 }
 
-.description {
-  color: black;
-}
-
 .price {
-  margin-bottom: 30px;
   font-size: 1.1rem;
   color: black;
+  font-weight: bold;
+}
+
+.old-price {
+  text-decoration: line-through;
+  color: #888; /* greyed out */
+}
+
+.discounted-price {
+  color: red; /* red for discount */
   font-weight: bold;
 }
 

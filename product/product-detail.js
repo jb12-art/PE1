@@ -29,6 +29,7 @@ async function fetchAndCreateProducts() {
     const title = document.createElement("h2");
     const description = document.createElement("p");
     const price = document.createElement("p");
+    const discountedPrice = document.createElement("p");
     const addToCartBtn = document.createElement("button"); // add product to cart and checkout
     const backButton = document.createElement("a");
 
@@ -38,6 +39,7 @@ async function fetchAndCreateProducts() {
     title.className = "title-detail";
     description.className = "description";
     price.className = "price";
+    discountedPrice.className = "discounted-price";
     addToCartBtn.className = "add-to-cart-button"; // add product to cart and checkout
     backButton.className = "back-button";
 
@@ -45,7 +47,23 @@ async function fetchAndCreateProducts() {
     image.src = product.image.url;
     image.alt = product.image.alt || product.title;
     title.textContent = product.title;
-    price.textContent = `$${Number(product.price).toFixed(2)}`;
+
+    // Handle price vs discounted-price
+    if (product.discountedPrice && product.discountedPrice < product.price) {
+      // Show old price with strikethrough
+      price.textContent = `$${Number(product.price).toFixed(2)}`;
+      price.classList.add("old-price"); // add CSS class for strikethrough
+
+      // Show discounted price
+      discountedPrice.textContent = `$${Number(product.discountedPrice).toFixed(
+        2
+      )}`;
+    } else {
+      // No discount = normal price
+      price.textContent = `$${Number(product.price).toFixed(2)}`;
+      discountedPrice.textContent = ""; // hide discounted price
+    }
+
     description.textContent = product.description || "No description available";
     addToCartBtn.textContent = "Add to Cart";
     backButton.textContent = "Back to products";
@@ -56,6 +74,7 @@ async function fetchAndCreateProducts() {
     content.appendChild(title);
     content.appendChild(description);
     content.appendChild(price);
+    content.appendChild(discountedPrice);
     content.appendChild(addToCartBtn);
     content.appendChild(backButton);
 
