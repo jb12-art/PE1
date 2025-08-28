@@ -49,7 +49,7 @@ async function fetchAndCreateProducts() {
     description.textContent = product.description || "No description available";
     addToCartBtn.textContent = "Add to Cart";
     backButton.textContent = "Back to products";
-    backButton.href = "/index.html";
+    backButton.href = "../index.html";
 
     box.appendChild(image);
     box.appendChild(content);
