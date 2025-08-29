@@ -81,6 +81,15 @@ header {
   margin-bottom: 14px;
 }
 
+/* product text */
+/* .basket-item {
+  
+} */
+
+.remove-button {
+  border: 1px solid lightcoral;
+}
+
 /* End of cart/ basket */
 
 nav,

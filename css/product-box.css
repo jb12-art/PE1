@@ -52,7 +52,7 @@
 }
 
 .discounted-price {
-  color: red; /* red for discount */
+  color: black; /* discount color */
   font-weight: bold;
 }
 

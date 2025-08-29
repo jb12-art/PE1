@@ -66,7 +66,6 @@ function displayProducts(products) {
     const content = document.createElement("div");
     const title = document.createElement("h2");
     const price = document.createElement("p");
-    const dicountedPrice = document.createElement("p");
     const addToCartBtn = document.createElement("button"); // add product to cart and checkout
 
     box.className = "box";
@@ -74,7 +73,6 @@ function displayProducts(products) {
     content.className = "content";
     title.className = "title";
     price.className = "price";
-    dicountedPrice.className = "discounted-price";
     addToCartBtn.className = "add-to-cart-button"; // add product to cart and checkout
 
     const imgUrl = product?.image?.url || "";
@@ -113,7 +111,6 @@ function displayProducts(products) {
     // Assemble grid products
     content.appendChild(title);
     content.appendChild(price);
-    content.appendChild(dicountedPrice);
     content.appendChild(addToCartBtn); // styled in: product-box.css
     box.appendChild(imageLink);
     box.appendChild(content);
@@ -211,13 +208,24 @@ if (nextBtn) {
 // ==========================
 // ----- Cart / Basket -----
 // ==========================
-// Alerting you when you add product to checkout
+// Add product to cart
 function addToCart(product) {
   const cart = JSON.parse(localStorage.getItem("cart")) || [];
-  cart.push(product);
+
+  // dicsountedPrice if valid, otherwise normal price
+  const hasDiscount =
+    product.discountedPrice && product.discountedPrice < product.price;
+
+  const cartItem = {
+    id: product.id,
+    title: product.title,
+    price: Number(product.price), // store final price
+    discountedPrice: hasDiscount ? Number(product.discountedPrice) : null,
+  };
+
+  cart.push(cartItem);
   localStorage.setItem("cart", JSON.stringify(cart));
   updateBasketDisplay(); // Refresh basket dropdown
-  alert(`${product.title} added to cart`);
 }
 
 // Toggle basket visibility
@@ -242,14 +250,25 @@ function updateBasketDisplay() {
   cart.forEach((item, index) => {
     const li = document.createElement("li");
     li.classList.add("basket-item");
-    li.innerHTML = `
-      ${item.title} - $${(item.price || 0).toFixed(2)} 
-      <button class="remove-button" data-index="${index}">Remove</button>
-      `;
+
+    if (item.discountedPrice && item.discountedPrice < item.price) {
+      li.innerHTML = `${
+        item.title
+      } - <span class="old-price">$${item.price.toFixed(2)}</span>
+      <span class="discounted-price">$${item.discountedPrice.toFixed(2)}</span>
+            <button class="remove-button" data-index="${index}">Remove</button>
+`;
+    } else {
+      li.innerHTML = `
+        ${item.title} - $${Number(item.price).toFixed(2)} 
+        <button class="remove-button" data-index="${index}">Remove</button>
+        `;
+    }
+
     basketList.appendChild(li);
   });
 
-  // Attach event listeners to remove buttons
+  // Attach event listeners to remove button
   basketList.querySelectorAll(".remove-button").forEach((button) => {
     button.addEventListener("click", (e) => {
       const indexToRemove = parseInt(e.target.getAttribute("data-index"), 10);

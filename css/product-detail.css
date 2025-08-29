@@ -38,23 +38,6 @@
   color: black;
 }
 
-.price {
-  font-size: 1.1rem;
-  color: black;
-  font-weight: bold;
-}
-
-.price.old-price {
-  text-decoration: line-through;
-  color: #888; /* greyed out */
-}
-
-.discounted-price {
-  color: red; /* red for discount */
-  font-size: 1.1rem;
-  font-weight: bold;
-}
-
 .back-button {
   text-decoration: none;
   color: black;
