@@ -81,12 +81,12 @@ function displayProducts(products) {
     image.alt = imgAlt;
 
     // Wrap grid product image in a link
-    imageLink.href = `../product/product.html?id=${product.id}`;
+    imageLink.href = `./product/product.html?id=${product.id}`;
     imageLink.appendChild(image);
 
     // Title link to specific product page
     const titleLink = document.createElement("a");
-    titleLink.href = `../product/product.html?id=${product.id}`;
+    titleLink.href = `./product/product.html?id=${product.id}`;
     titleLink.textContent = product.title || "Untitled product";
     title.appendChild(titleLink);
 
@@ -163,7 +163,7 @@ function displayCarousel(products) {
     const link = document.createElement("a");
     link.className = "banner-button-detail";
     link.textContent = "See more details";
-    link.href = `../product/product.html?id=${product.id}`;
+    link.href = `./product/product.html?id=${product.id}`;
 
     // Assemble carousel
     box.appendChild(image);
