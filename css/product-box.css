@@ -2,6 +2,12 @@
 /* Connected to index.html home page */
 /* The product box and what's inside */
 
+/* Mobile: 2 colums */
+@media (max-width: 600px) {
+  .product-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
 .product-container {
   max-width: 1200px;
   margin: 0 auto;
