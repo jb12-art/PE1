@@ -23,8 +23,6 @@ header {
   text-align: center;
   align-content: center;
   height: 100px;
-  border-style: solid;
-  border-width: 1px;
   background-color: black;
 }
 
@@ -124,6 +122,6 @@ footer {
   text-align: center;
   align-content: center;
   height: 80px;
-  border-style: solid;
-  border-width: 1px;
+  background-color: black;
+  color: white;
 }

@@ -28,7 +28,7 @@
   .content {
     padding: 15px;
     height: auto;
-    /* to stretch out the content so all content show when squeezed */
+    /* to stretch out the content when squeezed */
     aspect-ratio: 1/3;
   }
 

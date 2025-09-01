@@ -28,20 +28,26 @@ async function fetchAndCreateProducts() {
     const content = document.createElement("div");
     const title = document.createElement("h2");
     const description = document.createElement("p");
+    const rating = document.createElement("p");
     const price = document.createElement("p");
     const discountedPrice = document.createElement("p");
+    const tags = document.createElement("p");
     const addToCartBtn = document.createElement("button"); // add product to cart and checkout
     const backButton = document.createElement("a");
+    const review = document.createElement("p");
 
     box.className = "box-detail";
     image.className = "image-detail";
     content.className = "content-detail";
     title.className = "title-detail";
     description.className = "description-detail";
+    rating.className = "rating";
     price.className = "price";
     discountedPrice.className = "discounted-price";
+    tags.className = "tags";
     addToCartBtn.className = "add-to-cart-button"; // add product to cart and checkout
     backButton.className = "back-button";
+    review.className = "review";
 
     // Fill content
     image.src = product.image.url;
@@ -64,6 +70,35 @@ async function fetchAndCreateProducts() {
       discountedPrice.textContent = ""; // hide discounted price
     }
 
+    // Rating product
+    if (product.rating) {
+      rating.textContent = `⭐${product.rating.toFixed(1)} / 5`;
+    }
+
+    // Review product (loop through array)
+    if (product.reviews && product.reviews.length > 0) {
+      const reviewList = document.createElement("ul");
+      reviewList.className = "review-list";
+
+      product.reviews.forEach((rev) => {
+        const li = document.createElement("li");
+        li.innerHTML = `<strong>${rev.username}</strong>: ${rev.description} (⭐${rev.rating})`;
+        reviewList.appendChild(li);
+      });
+
+      review.appendChild(reviewList);
+    } else {
+      review.textContent = "No reviews yet.";
+    }
+    console.log("Reviews from API:", product.reviews);
+
+    // Tags on product (array + join with commas)
+    if (product.tags && product.tags.length > 0) {
+      tags.textContent = `Tags: ${product.tags.join(", ")}`;
+    } else {
+      tags.textContent = "No tags available";
+    }
+
     description.textContent = product.description || "No description available";
     addToCartBtn.textContent = "Add to Cart";
     backButton.textContent = "Back to products";
@@ -73,10 +108,13 @@ async function fetchAndCreateProducts() {
     box.appendChild(content);
     content.appendChild(title);
     content.appendChild(description);
+    content.appendChild(rating);
     content.appendChild(price);
     content.appendChild(discountedPrice);
+    content.appendChild(tags);
     content.appendChild(addToCartBtn);
     content.appendChild(backButton);
+    content.appendChild(review);
 
     // error message if API call don't work.
     container.appendChild(box);
