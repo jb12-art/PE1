@@ -21,6 +21,7 @@
     height: auto; /* remove fixed height */
     aspect-ratio: 4/3; /* keep nice proportions */
     object-fit: cover; /* still crops nicely if needed */
+    border-bottom: 1px solid lightgray;
   }
 
   .content {

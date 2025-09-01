@@ -34,10 +34,10 @@ async function fetchAndCreateProducts() {
     const backButton = document.createElement("a");
 
     box.className = "box-detail";
-    image.className = "image";
-    content.className = "content";
+    image.className = "image-detail";
+    content.className = "content-detail";
     title.className = "title-detail";
-    description.className = "description";
+    description.className = "description-detail";
     price.className = "price";
     discountedPrice.className = "discounted-price";
     addToCartBtn.className = "add-to-cart-button"; // add product to cart and checkout
