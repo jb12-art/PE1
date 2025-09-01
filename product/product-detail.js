@@ -90,7 +90,6 @@ async function fetchAndCreateProducts() {
     } else {
       review.textContent = "No reviews yet.";
     }
-    console.log("Reviews from API:", product.reviews);
 
     // Tags on product (array + join with commas)
     if (product.tags && product.tags.length > 0) {
