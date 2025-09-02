@@ -1,25 +1,26 @@
-<!-- Home page, page 1 -->
+<!-- Register, page 3 -->
+<!-- connects to index.html, page 1 -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/x-icon" href="images/favicon-32x32.png" />
-    <title>Product Feed Page</title>
-    <link rel="stylesheet" href="css/styles.css" />
-
+    <link rel="icon" type="image/x-icon" href="../images/favicon-32x32.png" />
+    <title>Account Register Page</title>
+    <link rel="stylesheet" href="../css/styles.css" />
     <!-- font awesome link -->
     <script
       src="https://kit.fontawesome.com/f96e83bcf8.js"
       crossorigin="anonymous"
     ></script>
-    <script src="./js/script.js" defer></script>
+    <!-- <script src="js/script.js" defer></script> -->
+    <script src="../js/register.js" defer></script>
   </head>
   <body>
     <div class="page-wrapper">
       <header>
         <div>
-          <a class="link" href="index.html"
+          <a class="link" href="../index.html"
             ><p class="logo-text">&#10022;HotView</p>
             <p class="logo-text">Labs&#10022;</p></a
           >
@@ -34,8 +35,8 @@
       >
       <!--navigation-->
       <nav>
-        <a href="index.html" aria-label="Link to home" class="current"
-          >Product Feed Page</a
+        <a href="../index.html" aria-label="Link to home" class="current"
+          >Specific Product page</a
         >
 
         <a href="checkout/index.html" aria-label="Link to checkout">Checkout</a>
@@ -50,25 +51,12 @@
         </div>
       </nav>
       <main class="main-page">
-        <div class="register-login-div">
-          <a href="account/register.html">
-            <button class="register">Register</button>
-          </a>
-          <a href="account/login.html">
-            <button class="login">Login</button>
-          </a>
-        </div>
-        <div class="banner-div">
-          <button class="left-arrow" id="prevBtn">&#x1F878;</button>
-          <div id="carousel" class="carousel"></div>
-          <button class="right-arrow" id="nextBtn">&#x1F87A;</button>
-        </div>
-        <!-- 1 id, and 2 classes -->
+        <h1>register page coming soon</h1>
+        <!-- 1 id, 2 classes. (#loadingIndicator code in script.js) (.loading and, .hidden is in product-feed-page.css /code for .hidden in script.js) -->
         <div id="loadingIndicator" class="loading hidden">
           Loading products.
         </div>
-
-        <div id="productContainer" class="product-container"></div>
+        <div id="productContainer" class="product-detail-container"></div>
       </main>
       <footer>Footer</footer>
     </div>
