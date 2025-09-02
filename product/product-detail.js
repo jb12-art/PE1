@@ -34,6 +34,7 @@ async function fetchAndCreateProducts() {
     const tags = document.createElement("p");
     const addToCartBtn = document.createElement("button"); // add product to cart and checkout
     const backButton = document.createElement("a");
+    const shareButton = document.createElement("button");
     const review = document.createElement("p");
 
     box.className = "box-detail";
@@ -47,7 +48,10 @@ async function fetchAndCreateProducts() {
     tags.className = "tags";
     addToCartBtn.className = "add-to-cart-button"; // add product to cart and checkout
     backButton.className = "back-button";
+    shareButton.className = "share-button";
     review.className = "review";
+
+    shareButton.innerHTML = "🔗 Share";
 
     // Fill content
     image.src = product.image.url;
@@ -75,6 +79,41 @@ async function fetchAndCreateProducts() {
       rating.textContent = `⭐${product.rating.toFixed(1)} / 5`;
     }
 
+    // Tags on product (array + join with commas)
+    if (product.tags && product.tags.length > 0) {
+      tags.textContent = `Tags: ${product.tags.join(", ")}`;
+    } else {
+      tags.textContent = "No tags available";
+    }
+
+    // Share link
+    const shareUrl = `${window.location.origin}${window.location.pathname}?id=${product.id}`;
+
+    // Share function
+    shareButton.addEventListener("click", async () => {
+      if (navigator.share) {
+        // Mobile web share API
+        try {
+          await navigator.share({
+            title: product.title,
+            text: "Check out this product",
+            url: shareUrl,
+          });
+          console.log("Product shared successfully");
+        } catch (err) {
+          console.error("Share failed:", err);
+        }
+      } else {
+        // Fallback: copy link to clipboard
+        try {
+          await navigator.clipboard.writeText(shareUrl);
+          alert("Link copied to clipboard: " + shareUrl);
+        } catch (err) {
+          console.error("Failed to copy link:", err);
+        }
+      }
+    });
+
     // Review product (loop through array)
     if (product.reviews && product.reviews.length > 0) {
       const reviewList = document.createElement("ul");
@@ -89,13 +128,6 @@ async function fetchAndCreateProducts() {
       review.appendChild(reviewList);
     } else {
       review.textContent = "No reviews yet.";
-    }
-
-    // Tags on product (array + join with commas)
-    if (product.tags && product.tags.length > 0) {
-      tags.textContent = `Tags: ${product.tags.join(", ")}`;
-    } else {
-      tags.textContent = "No tags available";
     }
 
     description.textContent = product.description || "No description available";
@@ -113,6 +145,7 @@ async function fetchAndCreateProducts() {
     content.appendChild(tags);
     content.appendChild(addToCartBtn);
     content.appendChild(backButton);
+    content.appendChild(shareButton);
     content.appendChild(review);
 
     // error message if API call don't work.
