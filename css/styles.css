@@ -3,6 +3,7 @@
 @import url("./product-feed-page.css");
 @import url("./product-box.css");
 @import url("./product-detail.css");
+@import url("./register.css");
 
 body {
   margin: 0 auto;
