@@ -51,11 +51,12 @@
         </div>
       </nav>
       <main class="main-page">
-        <h1 class="register-title">Register form</h1>
-        <form id="registerForm" novalidate>
-          <div class="register-form">
+        <h1 class="reg-log-title">Register form</h1>
+        <form id="registerForm" novalidate class="form">
+          <div class="reg-log-div">
             <label for="emailRegistration">Enter your email</label>
             <input
+              class="input-one"
               type="email"
               name="email"
               id="emailRegistration"
@@ -65,10 +66,8 @@
             <small class="error-message" id="emailError"></small>
           </div>
 
-          <div class="register-form">
-            <label for="passwordRegistration"
-              >Enter your password (At least 4 characters)</label
-            >
+          <div class="reg-log-div">
+            <label for="passwordRegistration">Enter your password</label>
 
             <input
               type="password"
@@ -79,17 +78,15 @@
               placeholder="password"
             />
             <small class="error-message" id="passwordError"></small>
+            <p class="reg-pass-text">At least 4 characters</p>
           </div>
 
-          <div class="register-btn">
-            <input type="submit" value="Register" />
+          <div>
+            <input class="reg-log-btn" type="submit" value="Register" />
+
+            <a class="back-button" href="../index.html">Back to products</a>
           </div>
         </form>
-        <!-- 1 id, 2 classes. (#loadingIndicator code in script.js) (.loading and, .hidden is in product-feed-page.css /code for .hidden in script.js) -->
-        <div id="loadingIndicator" class="loading hidden">
-          Loading products.
-        </div>
-        <div id="productContainer" class="product-detail-container"></div>
       </main>
       <footer>Footer</footer>
     </div>

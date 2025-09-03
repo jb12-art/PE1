@@ -4,8 +4,8 @@
 @import url("./product-box.css");
 @import url("./product-detail.css");
 @import url("./register.css");
-
-body {
+@import url("./login.css");
+t body {
   margin: 0 auto;
   min-height: 100vh;
   font-family: Arial, Helvetica, sans-serif;
@@ -117,6 +117,31 @@ nav a {
   padding: 10px 20px;
   font-size: 1rem;
   text-decoration: none;
+}
+
+/* ---- Forms shared for register.html and login.html ---- */
+.reg-log-title {
+  text-align: center;
+}
+
+.reg-log-div {
+  display: grid;
+}
+
+.input-one {
+  margin-bottom: 20px;
+}
+
+.label {
+  display: inline-block;
+}
+
+.reg-log-btn {
+  color: black;
+  padding: 6px 16px;
+  border: 1px solid #000;
+  border-radius: 4px;
+  font-size: 15px;
 }
 
 footer {

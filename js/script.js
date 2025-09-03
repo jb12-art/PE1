@@ -23,6 +23,11 @@ let allProducts = []; // store all products globally
 let latestProducts = [];
 let currentIndex = 0;
 
+// hide/show. 'Add to Cart' button when user is not-logged in/logged in.
+function isUserLoggedIn() {
+  return localStorage.getItem("isLoggedIn") === "true";
+}
+
 // Fetch + Render products
 async function fetchAndCreateProducts() {
   try {
@@ -111,7 +116,9 @@ function displayProducts(products) {
     // Assemble grid products
     content.appendChild(title);
     content.appendChild(price);
-    content.appendChild(addToCartBtn); // styled in: product-box.css
+    if (isUserLoggedIn()) {
+      content.appendChild(addToCartBtn); // styled in: product-box.css
+    }
     box.appendChild(imageLink);
     box.appendChild(content);
     container.appendChild(box);

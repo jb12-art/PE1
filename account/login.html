@@ -53,12 +53,41 @@
         </div>
       </nav>
       <main class="main-page">
-        <h1>login page coming soon</h1>
-        <!-- 1 id, 2 classes. (#loadingIndicator code in script.js) (.loading and, .hidden is in product-feed-page.css /code for .hidden in script.js) -->
-        <div id="loadingIndicator" class="loading hidden">
-          Loading products.
-        </div>
-        <div id="productContainer" class="product-detail-container"></div>
+        <h1 class="reg-log-title">Login form</h1>
+        <form id="loginForm" class="form">
+          <div class="reg-log-div">
+            <label class="label" for="emailLogin">Email</label>
+            <input
+              class="input-one"
+              type="email"
+              id="emailLogin"
+              required
+              placeholder="email"
+            />
+            <small id="loginEmailError" class="error"></small>
+          </div>
+
+          <div class="reg-log-div">
+            <label for="passwordLogin">Password</label>
+            <input
+              type="password"
+              id="passwordLogin"
+              required
+              placeholder="password"
+            />
+            <small id="loginPasswordError" class="error"></small>
+          </div>
+
+          <div class="login-btn">
+            <input class="reg-log-btn" type="submit" value="Login" />
+          </div>
+          <p>
+            Don't have an account?
+            <a href="register.html">Register here</a>
+          </p>
+        </form>
+
+        <div id="loginMessage"></div>
       </main>
       <footer>Footer</footer>
     </div>

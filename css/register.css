@@ -7,3 +7,14 @@
   margin-top: 4px;
   display: block;
 }
+
+.form {
+  width: 400px;
+  margin: auto;
+}
+
+.reg-pass-text {
+  margin-top: 0;
+  font-size: 14px;
+  margin-bottom: 25px;
+}

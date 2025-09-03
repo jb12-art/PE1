@@ -6,6 +6,11 @@ const API_URL = "https://v2.api.noroff.dev/online-shop";
 const container = document.querySelector("#productContainer");
 const loadingIndicator = document.querySelector("#loadingIndicator");
 
+// hide/show. 'Add to Cart' button when user is not-logged in/logged in.
+function isUserLoggedIn() {
+  return localStorage.getItem("isLoggedIn") === "true";
+}
+
 // Fetch + Render products
 async function fetchAndCreateProducts() {
   try {
@@ -54,8 +59,13 @@ async function fetchAndCreateProducts() {
     shareButton.innerHTML = "🔗 Share";
 
     // Fill content
-    image.src = product.image.url;
-    image.alt = product.image.alt || product.title;
+    if (product.image && product.image.url) {
+      image.src = product.image.url;
+      image.alt = product.image.alt || product.title;
+    } else {
+      image.src = "../images/placeholder.png"; //fallback image
+      image.alt = "No image available";
+    }
     title.textContent = product.title;
 
     // Handle price vs discounted-price
@@ -135,6 +145,7 @@ async function fetchAndCreateProducts() {
     backButton.textContent = "Back to products";
     backButton.href = "../index.html";
 
+    // Assemble content
     box.appendChild(image);
     box.appendChild(content);
     content.appendChild(title);
@@ -143,7 +154,11 @@ async function fetchAndCreateProducts() {
     content.appendChild(price);
     content.appendChild(discountedPrice);
     content.appendChild(tags);
-    content.appendChild(addToCartBtn);
+
+    if (isUserLoggedIn()) {
+      content.appendChild(addToCartBtn);
+    }
+
     content.appendChild(backButton);
     content.appendChild(shareButton);
     content.appendChild(review);
@@ -151,9 +166,8 @@ async function fetchAndCreateProducts() {
     // error message if API call don't work.
     container.appendChild(box);
   } catch (error) {
-    console.error(
-      "Faled to load product, refresh the page or try again later."
-    );
+    console.error("Failed to load product", error);
+    container.textContent = "refresh the page or try again later.";
   } finally {
     loadingIndicator.classList.add("hidden"); // hide loading
   }
