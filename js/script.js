@@ -23,6 +23,46 @@ let allProducts = []; // store all products globally
 let latestProducts = [];
 let currentIndex = 0;
 
+// show/hide 'Login to add products to cart' text
+document.addEventListener("DOMContentLoaded", () => {
+  const helpText = document.querySelector(".help-text");
+  if (isUserLoggedIn() && helpText) {
+    helpText.style.display = "none";
+  }
+});
+
+// show email/username + logout button
+document.addEventListener("DOMContentLoaded", () => {
+  const userBox = document.getElementById("userBox");
+  const helpText = document.querySelector(".help-text");
+  const regLogDiv = document.querySelector(".register-login-div");
+
+  if (isUserLoggedIn()) {
+    // Hide "Login to add products" text
+    if (helpText) helpText.style.display = "none";
+    // Hide Register/Login buttons
+    if (regLogDiv) regLogDiv.style.display = "none";
+
+    // Show user box
+    const user = JSON.parse(localStorage.getItem("registeredUser"));
+    if (userBox && user) {
+      userBox.style.display = "block";
+      userBox.innerHTML = `${user.email} <button id="logoutBtn">Sign out</button>`;
+
+      // Logout handler
+      document.getElementById("logoutBtn").addEventListener("click", () => {
+        localStorage.removeItem("isLoggedIn");
+        localStorage.removeItem("cart");
+        window.location.reload(); // refresh to update UI
+      });
+    }
+  } else {
+    // If not logged in, show Register/Login buttons and hide user box
+    if (regLogDiv) regLogDiv.style.display = "flex";
+    if (userBox) userBox.style.display = "none";
+  }
+});
+
 // hide/show. 'Add to Cart' button when user is not-logged in/logged in.
 function isUserLoggedIn() {
   return localStorage.getItem("isLoggedIn") === "true";

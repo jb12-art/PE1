@@ -49,16 +49,24 @@
           </div>
         </div>
       </nav>
+
       <main class="main-page">
-        <div class="register-login-div">
-          <a href="account/register.html">
-            <button class="register">Register</button>
-          </a>
-          <a href="account/login.html">
-            <button class="login">Login</button>
-          </a>
+        <div class="register-login-container">
+          <div class="register-login-div">
+            <a href="account/register.html">
+              <button class="register">Register</button>
+            </a>
+            <a href="account/login.html">
+              <button class="login">Login</button>
+            </a>
+          </div>
+
+          <!-- user box will replace the register/login buttons when logged in -->
+          <div id="userBox" class="user-box hidden"></div>
         </div>
+
         <p class="help-text">Login to add products to cart</p>
+
         <div class="banner-div">
           <button class="left-arrow" id="prevBtn">&#x1F878;</button>
           <div id="carousel" class="carousel"></div>
