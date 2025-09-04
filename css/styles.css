@@ -154,6 +154,19 @@ h1 {
   text-align: center;
 }
 
+.form-container {
+  margin: auto;
+  max-width: 500px;
+  padding-left: 1px;
+  padding-right: 9px;
+}
+
+.form_input {
+  display: block;
+  max-width: 490px;
+  width: 100%;
+}
+
 .reg-log-div {
   display: grid;
 }

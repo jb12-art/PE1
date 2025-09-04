@@ -57,16 +57,22 @@
 
       <main class="main-page">
         <h1>Cart</h1>
+        <div id="cart-items" class="container"></div>
         <!-- 1 id, 2 classes. (#loadingIndicator code in script.js) (.loading and, .hidden is in product-feed-page.css /code for .hidden in script.js) -->
         <div id="loadingIndicator" class="loading hidden">
           Loading products.
         </div>
         <div id="productContainer" class="product-detail-container"></div>
 
-        <div id="cart-items" class="container"></div>
-
         <p class="divider"></p>
-        <p class="total-text">Total $,-</p>
+        <p class="total-text">Total: $<span id="cart-total">0.00</span></p>
+
+        <div class="cart-actions">
+          <button id="clearCartBtn">Clear Cart</button>
+          <a href="checkout.html">
+            <button id="checkboxBtn">Proceed to Checkout</button>
+          </a>
+        </div>
 
         <p class="divider"></p>
       </main>

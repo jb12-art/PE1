@@ -257,11 +257,31 @@ if (nextBtn) {
 // ==========================
 // Add product to cart
 function addToCart(product) {
-  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
   // dicsountedPrice if valid, otherwise normal price
   const hasDiscount =
     product.discountedPrice && product.discountedPrice < product.price;
+  const price = hasDiscount
+    ? Number(product.discountedPrice)
+    : Number(product.price);
+
+  // Check if product already in cart
+  const existingItem = cart.find((item) => item.id === product.id);
+
+  if (existingItem) {
+    existingItem.quantity += 1; // increase qty
+  } else {
+    cart.push({
+      id: product.id,
+      title: product.title,
+      price: Number(product.price),
+      discountedPrice: hasDiscount ? Number(product.discountedPrice) : null,
+      quantity: 1,
+    });
+  }
+  localStorage.setItem("cart", JSON.stringify(cart));
+  updateBasketDisplay();
 
   const cartItem = {
     id: product.id,
