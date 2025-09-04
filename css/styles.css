@@ -5,7 +5,9 @@
 @import url("./product-detail.css");
 @import url("./register.css");
 @import url("./login.css");
-t body {
+@import url("./cart.css");
+
+body {
   margin: 0 auto;
   min-height: 100vh;
   font-family: Arial, Helvetica, sans-serif;
@@ -145,8 +147,10 @@ nav a {
   text-decoration: none;
 }
 
-/* ---- Forms shared for register.html and login.html ---- */
-.reg-log-title {
+/* ---- styles shared for register.html, login.html, cart.html ---- */
+
+/* H1 is shared by, register.html, login.html, cart.html */
+h1 {
   text-align: center;
 }
 
