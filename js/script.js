@@ -1,6 +1,15 @@
+// script.js
+// Uses shared cart-utils.js for cart logic.
 // PE1 - API Endpoint Online Shop.
 // Connected to Home page.
 // script.js is styled in product-box.css
+
+// Import shared cart-function
+import {
+  addToCart,
+  isUserLoggedIn,
+  updateBasketDisplay,
+} from "./cart-utils.js";
 
 const API_URL = "https://v2.api.noroff.dev/online-shop";
 
@@ -13,10 +22,9 @@ const carousel = document.querySelector("#carousel");
 const prevBtn = document.querySelector("#prevBtn");
 const nextBtn = document.querySelector("#nextBtn");
 
-// Basket
+// Toggle basket dropdown
 const basketToggle = document.getElementById("basketToggle");
 const basketDropdown = document.getElementById("basketDropdown");
-const basketList = document.getElementById("basketList");
 
 // ---- State ----
 let allProducts = []; // store all products globally
@@ -63,12 +71,9 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-// hide/show. 'Add to Cart' button when user is not-logged in/logged in.
-function isUserLoggedIn() {
-  return localStorage.getItem("isLoggedIn") === "true";
-}
-
+// =======================
 // Fetch + Render products
+// =======================
 async function fetchAndCreateProducts() {
   try {
     loadingIndicator.classList.remove("hidden"); // show 'Loading products.' message if API products is loading.
@@ -156,9 +161,7 @@ function displayProducts(products) {
     // Assemble grid products
     content.appendChild(title);
     content.appendChild(price);
-    if (isUserLoggedIn()) {
-      content.appendChild(addToCartBtn); // styled in: product-box.css
-    }
+    content.appendChild(addToCartBtn); // styled in: product-box.css
     box.appendChild(imageLink);
     box.appendChild(content);
     container.appendChild(box);
@@ -252,50 +255,7 @@ if (nextBtn) {
   });
 }
 
-// ==========================
 // ----- Cart / Basket -----
-// ==========================
-// Add product to cart
-function addToCart(product) {
-  let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-  // dicsountedPrice if valid, otherwise normal price
-  const hasDiscount =
-    product.discountedPrice && product.discountedPrice < product.price;
-  const price = hasDiscount
-    ? Number(product.discountedPrice)
-    : Number(product.price);
-
-  // Check if product already in cart
-  const existingItem = cart.find((item) => item.id === product.id);
-
-  if (existingItem) {
-    existingItem.quantity += 1; // increase qty
-  } else {
-    cart.push({
-      id: product.id,
-      title: product.title,
-      price: Number(product.price),
-      discountedPrice: hasDiscount ? Number(product.discountedPrice) : null,
-      quantity: 1,
-    });
-  }
-  localStorage.setItem("cart", JSON.stringify(cart));
-  updateBasketDisplay();
-
-  const cartItem = {
-    id: product.id,
-    title: product.title,
-    price: Number(product.price), // store final price
-    discountedPrice: hasDiscount ? Number(product.discountedPrice) : null,
-  };
-
-  cart.push(cartItem);
-  localStorage.setItem("cart", JSON.stringify(cart));
-  updateBasketDisplay(); // Refresh basket dropdown
-}
-
-// Toggle basket visibility
 if (basketToggle && basketDropdown) {
   basketToggle.addEventListener("click", () => {
     basketDropdown.classList.toggle("hidden");
@@ -303,52 +263,6 @@ if (basketToggle && basketDropdown) {
   });
 }
 
-// Update basket UI
-function updateBasketDisplay() {
-  const cart = JSON.parse(localStorage.getItem("cart")) || [];
-  basketList.innerHTML = "";
-
-  if (cart.length === 0) {
-    basketList.innerHTML = "<li>Your cart is empty.</li>";
-    return;
-  }
-
-  // Cart items and Remove-button with class"" to style, styles.css
-  cart.forEach((item, index) => {
-    const li = document.createElement("li");
-    li.classList.add("basket-item");
-
-    if (item.discountedPrice && item.discountedPrice < item.price) {
-      li.innerHTML = `${
-        item.title
-      } - <span class="old-price">$${item.price.toFixed(2)}</span>
-      <span class="discounted-price">$${item.discountedPrice.toFixed(2)}</span>
-            <button class="remove-button" data-index="${index}">Remove</button>
-`;
-    } else {
-      li.innerHTML = `
-        ${item.title} - $${Number(item.price).toFixed(2)} 
-        <button class="remove-button" data-index="${index}">Remove</button>
-        `;
-    }
-
-    basketList.appendChild(li);
-  });
-
-  // Attach event listeners to remove button
-  basketList.querySelectorAll(".remove-button").forEach((button) => {
-    button.addEventListener("click", (e) => {
-      const indexToRemove = parseInt(e.target.getAttribute("data-index"), 10);
-      removeFromCart(indexToRemove);
-    });
-  });
-}
-
-function removeFromCart(index) {
-  const cart = JSON.parse(localStorage.getItem("cart")) || [];
-  cart.splice(index, 1); // Remove the item at the given index
-  localStorage.setItem("cart", JSON.stringify(cart));
-  updateBasketDisplay(); // Refresh UI
-}
-
+// Init
 fetchAndCreateProducts();
+updateBasketDisplay(); // Refresh dropdown UI

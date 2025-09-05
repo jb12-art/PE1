@@ -56,7 +56,7 @@ function renderCart() {
   totalText.textContent = total.toFixed(2);
 
   // Quantity update
-  document.querySelectorAll(",qty-input").forEach((input) => {
+  document.querySelectorAll(".qty-input").forEach((input) => {
     input.addEventListener("change", (e) => {
       const i = e.target.getAttribute("data-index");
       const newQty = Math.max(1, parseInt(e.target.value));
@@ -67,7 +67,7 @@ function renderCart() {
   });
 
   // Remove item
-  document.querySelectorAll(".remove.btn").forEach((btn) => {
+  document.querySelectorAll(".remove-btn").forEach((btn) => {
     btn.addEventListener("click", (e) => {
       const i = e.target.getAttribute("data-index");
       cart.splice(i, 1);
@@ -76,3 +76,22 @@ function renderCart() {
     });
   });
 }
+
+import { renderCartPage, clearCart } from "./cart-utils.js";
+
+document.addEventListener("DOMContentLoaded", () => {
+  renderCartPage();
+
+  const clearBtn = document.createElement("button");
+  clearBtn.textContent = "Clear Cart";
+  clearBtn.addEventListener("click", clearCart);
+
+  const checkoutBtn = document.createElement("button");
+  checkoutBtn.textContent = "Proceed to Checkout";
+  checkoutBtn.addEventListener("click", () => {
+    window.location.href = "checkout/index.html";
+  });
+
+  document.querySelector(".main-page").appendChild(clearBtn);
+  document.querySelector(".main-page").appendChild(checkoutBtn);
+});

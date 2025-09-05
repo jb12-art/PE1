@@ -1,15 +1,21 @@
 // PE1 - API Endpoint Online Shop.
 // product-detail.js is styled in product-detail.css
 
+// Import shared cart-function
+import {
+  addToCart,
+  isUserLoggedIn,
+  updateBasketDisplay,
+} from "./cart-utils.js";
+
 const API_URL = "https://v2.api.noroff.dev/online-shop";
 
 const container = document.querySelector("#productContainer");
 const loadingIndicator = document.querySelector("#loadingIndicator");
 
-// hide/show. 'Add to Cart' button when user is not-logged in/logged in.
-function isUserLoggedIn() {
-  return localStorage.getItem("isLoggedIn") === "true";
-}
+// Toggle basket dropdown
+const basketToggle = document.getElementById("basketToggle");
+const basketDropdown = document.getElementById("basketDropdown");
 
 // Fetch + Render products
 async function fetchAndCreateProducts() {
@@ -25,9 +31,14 @@ async function fetchAndCreateProducts() {
     }
 
     const response = await fetch(`${API_URL}/${id}`);
-    const data = await response.json();
-    const product = data.data;
+    const { data: product } = await response.json();
 
+    if (!product) {
+      container.textContent = "Product not found";
+      return;
+    }
+
+    // Build UI
     const box = document.createElement("div");
     const image = document.createElement("img");
     const content = document.createElement("div");
@@ -156,6 +167,10 @@ async function fetchAndCreateProducts() {
     content.appendChild(tags);
 
     if (isUserLoggedIn()) {
+      addToCartBtn.addEventListener("click", () => {
+        addToCart(product);
+        updateBasketDisplay(); // refresh dropdown UI
+      });
       content.appendChild(addToCartBtn);
     }
 
@@ -163,14 +178,24 @@ async function fetchAndCreateProducts() {
     content.appendChild(shareButton);
     content.appendChild(review);
 
-    // error message if API call don't work.
     container.appendChild(box);
+
+    // error message if API call don't work.
   } catch (error) {
     console.error("Failed to load product", error);
     container.textContent = "refresh the page or try again later.";
   } finally {
     loadingIndicator.classList.add("hidden"); // hide loading
   }
+
+  // ----- Cart / Basket -----
+  if (basketToggle && basketDropdown) {
+    basketToggle.addEventListener("click", () => {
+      basketDropdown.classList.toggle("hidden");
+      updateBasketDisplay();
+    });
+  }
 }
 
 fetchAndCreateProducts();
+updateBasketDisplay();

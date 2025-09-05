@@ -45,17 +45,16 @@ header {
   flex-grow: 1;
 }
 
-/* Navigation box */
+/* ------- Navigation box -------- */
 
 /* under the hamburger bars */
 .hamburger-icon {
   background-color: lavenderblush;
 }
 
-/* hamburger bars */
-.fa-bars {
-  /* color: blue; */
-  /* transform: scaleX(8); */
+.fa-bars,
+.hamburger-icon {
+  cursor: pointer;
 }
 
 nav,
@@ -69,10 +68,10 @@ nav,
 
 nav {
   position: absolute;
-  margin-top: 130px;
+  margin-top: 132px;
   background: lightgrey;
   left: 0px;
-  /* margin: auto; */
+  z-index: 1;
 }
 
 .mobile-nav-icon {
@@ -92,6 +91,17 @@ nav a {
   position: relative;
   display: inline-block;
   padding: 10px 20px;
+  width: 200px;
+  background-color: lightpink;
+}
+
+.current {
+  text-decoration: underline;
+}
+
+.quick-cart-button {
+  width: 100%;
+  text-align: inherit;
 }
 
 #basketToggle {
@@ -105,10 +115,11 @@ nav a {
   position: absolute;
   left: 0em; /* this moves the dropdown to the left side */
   background-color: white;
-  min-width: 200px;
+  width: 310px;
   border: 1px solid #000000;
   z-index: 1000;
-  padding: 15px;
+  padding: 10px 10px 10px 15px;
+  margin-top: 10px;
 }
 
 .basket-dropdown ul {
@@ -126,11 +137,11 @@ nav a {
 
 /* product text */
 /* .basket-item {
-  
 } */
 
 .remove-button {
   border: 1px solid lightcoral;
+  margin-left: 3px;
 }
 
 /* User login box */

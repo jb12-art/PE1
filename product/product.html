@@ -18,7 +18,7 @@
       crossorigin="anonymous"
     ></script>
     <!-- <script src="js/script.js" defer></script> -->
-    <script src="../js/product-detail.js" defer></script>
+    <script type="module" src="../js/product-detail.js" defer></script>
   </head>
   <body>
     <div class="page-wrapper">
@@ -37,6 +37,7 @@
           ><i class="mobile-nav-icon">hamburger-icon</i></i
         ></label
       >
+
       <!--navigation-->
       <nav>
         <a href="../index.html" aria-label="Link to home" class="current"
@@ -45,7 +46,11 @@
 
         <a href="checkout/index.html" aria-label="Link to checkout">Checkout</a>
         <div class="basket-container">
-          <button id="basketToggle" aria-label="Open cart">
+          <button
+            class="quick-cart-button"
+            id="basketToggle"
+            aria-label="Open cart"
+          >
             Cart
             <i class="fas fa-caret-down" aria-label="arrow down, open cart"></i>
           </button>
