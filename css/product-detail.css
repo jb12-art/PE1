@@ -62,6 +62,8 @@
   background-color: rgba(0, 255, 242, 0.253);
   font-size: 15px;
   margin-left: 10px;
+  display: inline-block;
+  max-width: fit-content;
 }
 
 /* Link */
