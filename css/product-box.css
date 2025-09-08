@@ -30,7 +30,8 @@
     height: auto;
     /* to stretch out the content when squeezed */
     aspect-ratio: 1/3;
-    max-height: 200px;
+    max-height: 220px;
+    width: 100%;
   }
 
   .title {

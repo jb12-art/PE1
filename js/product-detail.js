@@ -1,3 +1,6 @@
+// product-detail.js
+// Product detail page
+
 // PE1 - API Endpoint Online Shop.
 // product-detail.js is styled in product-detail.css
 
@@ -17,7 +20,9 @@ const loadingIndicator = document.querySelector("#loadingIndicator");
 const basketToggle = document.getElementById("basketToggle");
 const basketDropdown = document.getElementById("basketDropdown");
 
-// Fetch + Render products
+// =======================
+// Fetch + Render product
+// =======================
 async function fetchAndCreateProducts() {
   try {
     loadingIndicator.classList.remove("hidden"); // show loading
@@ -48,7 +53,6 @@ async function fetchAndCreateProducts() {
     const price = document.createElement("p");
     const discountedPrice = document.createElement("p");
     const tags = document.createElement("p");
-    const addToCartBtn = document.createElement("button"); // add product to cart and checkout
     const backButton = document.createElement("a");
     const shareButton = document.createElement("button");
     const review = document.createElement("p");
@@ -62,7 +66,6 @@ async function fetchAndCreateProducts() {
     price.className = "price";
     discountedPrice.className = "discounted-price";
     tags.className = "tags";
-    addToCartBtn.className = "add-to-cart-button"; // add product to cart and checkout
     backButton.className = "back-button";
     shareButton.className = "share-button";
     review.className = "review";
@@ -152,7 +155,6 @@ async function fetchAndCreateProducts() {
     }
 
     description.textContent = product.description || "No description available";
-    addToCartBtn.textContent = "Add to Cart";
     backButton.textContent = "Back to products";
     backButton.href = "../index.html";
 
@@ -166,12 +168,18 @@ async function fetchAndCreateProducts() {
     content.appendChild(discountedPrice);
     content.appendChild(tags);
 
+    // 'Add to Cart' button, hide/show function
     if (isUserLoggedIn()) {
+      const addToCartBtn = document.createElement("button");
+      addToCartBtn.className = "add-to-cart-button";
+      addToCartBtn.textContent = "Add to Cart"; // add product to cart and checkout
+
       addToCartBtn.addEventListener("click", () => {
         addToCart(product);
-        updateBasketDisplay(); // refresh dropdown UI
+        updateBasketDisplay(); // keep dropdown in sync
       });
-      content.appendChild(addToCartBtn);
+
+      content.appendChild(addToCartBtn); // styled in: product-box.css
     }
 
     content.appendChild(backButton);

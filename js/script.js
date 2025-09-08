@@ -116,15 +116,14 @@ function displayProducts(products) {
     const content = document.createElement("div");
     const title = document.createElement("h2");
     const price = document.createElement("p");
-    const addToCartBtn = document.createElement("button"); // add product to cart and checkout
 
     box.className = "box";
     image.className = "image";
     content.className = "content";
     title.className = "title";
     price.className = "price";
-    addToCartBtn.className = "add-to-cart-button"; // add product to cart and checkout
 
+    // Image
     const imgUrl = product?.image?.url || "";
     const imgAlt = product?.image?.alt || product?.title || "Product image";
     image.src = imgUrl;
@@ -140,7 +139,7 @@ function displayProducts(products) {
     titleLink.textContent = product.title || "Untitled product";
     title.appendChild(titleLink);
 
-    // Handle price vs discounted-price
+    // Price vs discounted-price
     if (product.discountedPrice && product.discountedPrice < product.price) {
       price.innerHTML = `<span class="old-price">$${Number(
         product.price
@@ -152,16 +151,23 @@ function displayProducts(products) {
       price.textContent = `$${Number(product.price || 0).toFixed(2)}`;
     }
 
-    addToCartBtn.textContent = "Add to Cart"; // add product to cart and checkout
-
-    // add product to cart and checkout
-    // Add to cart handler
-    addToCartBtn.addEventListener("click", () => addToCart(product));
-
     // Assemble grid products
     content.appendChild(title);
     content.appendChild(price);
-    content.appendChild(addToCartBtn); // styled in: product-box.css
+
+    // 'Add to Cart' button, hide/show function
+    if (isUserLoggedIn()) {
+      const addToCartBtn = document.createElement("button");
+      addToCartBtn.className = "add-to-cart-button";
+      addToCartBtn.textContent = "Add to Cart"; // add product to cart and checkout
+
+      addToCartBtn.addEventListener("click", () => {
+        addToCart(product);
+        updateBasketDisplay(); // keep dropdown in sync
+      });
+      content.appendChild(addToCartBtn); // styled in: product-box.css
+    }
+
     box.appendChild(imageLink);
     box.appendChild(content);
     container.appendChild(box);
