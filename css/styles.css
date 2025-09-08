@@ -117,8 +117,7 @@ nav a {
     position: absolute;
     left: 0em; /* this moves the dropdown to the left side */
     background-color: white;
-    max-width: 310px;
-    width: 100%;
+    width: 278px;
     border: 1px solid #000000;
     z-index: 1000;
     padding: 10px 10px 10px 14px;
@@ -132,7 +131,7 @@ nav a {
     position: absolute;
     left: 0em; /* this moves the dropdown to the left side */
     background-color: white;
-    width: 310px;
+    width: 360px;
     border: 1px solid #000000;
     z-index: 1000;
     padding: 10px 10px 10px 15px;
