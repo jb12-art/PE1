@@ -111,15 +111,33 @@ nav a {
   font-size: 1rem;
 }
 
-.basket-dropdown {
-  position: absolute;
-  left: 0em; /* this moves the dropdown to the left side */
-  background-color: white;
-  width: 310px;
-  border: 1px solid #000000;
-  z-index: 1000;
-  padding: 10px 10px 10px 15px;
-  margin-top: 10px;
+/* Mobile */
+@media (max-width: 600px) {
+  .basket-dropdown {
+    position: absolute;
+    left: 0em; /* this moves the dropdown to the left side */
+    background-color: white;
+    max-width: 310px;
+    width: 100%;
+    border: 1px solid #000000;
+    z-index: 1000;
+    padding: 10px 10px 10px 14px;
+    margin-top: 10px;
+  }
+}
+
+/* Desktop */
+@media (min-width: 601px) {
+  .basket-dropdown {
+    position: absolute;
+    left: 0em; /* this moves the dropdown to the left side */
+    background-color: white;
+    width: 310px;
+    border: 1px solid #000000;
+    z-index: 1000;
+    padding: 10px 10px 10px 15px;
+    margin-top: 10px;
+  }
 }
 
 .basket-dropdown ul {
