@@ -118,7 +118,7 @@ export function renderCartPage() {
     <button class="increase" data-index="${index}">+</button>
     </div>
     <p>Subtotal: $${(item.discountedPrice * item.quantity).toFixed(2)}</p>
-    <button class="remove" data-index="${index}">Remove</button>
+    <button class="remove-button" data-index="${index}">Remove</button>
     `;
 
     cartItemsContainer.appendChild(div);

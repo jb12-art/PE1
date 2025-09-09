@@ -10,10 +10,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/x-icon" href="../images/favicon-32x32.png" />
+    <link rel="icon" type="image/x-icon" href="images/favicon-32x32.png" />
     <title>Cart Page</title>
-    <link rel="stylesheet" href="../css/styles.css" />
-    <script src="../js/cart.js" defer></script>
+    <link rel="stylesheet" href="css/styles.css" />
+    <script type="module" src="js/cart.js" defer></script>
     <!-- font awesome link -->
     <script
       src="https://kit.fontawesome.com/f96e83bcf8.js"
@@ -39,16 +39,20 @@
       >
       <!--navigation-->
       <nav>
-        <a href="index.html" aria-label="Link to home">Product Feed Page</a>
+        <a href="/index.html" aria-label="Link to home">Product Feed Page</a>
 
-        <a href="cart.html" aria-label="Link to cart page" class="current"
+        <a href="/cart.html" aria-label="Link to cart page" class="current"
           >Cart</a
         >
 
-        <a href="checkout.html" aria-label="Link to checkout">Checkout</a>
+        <a href="/checkout.html" aria-label="Link to checkout">Checkout</a>
         <div class="basket-container">
-          <button id="basketToggle" aria-label="Open cart">
-            Cart
+          <button
+            class="quick-cart-button"
+            id="basketToggle"
+            aria-label="Open cart"
+          >
+            Cart view
             <i class="fas fa-caret-down" aria-label="arrow down, open cart"></i>
           </button>
           <div id="basketDropdown" class="basket-dropdown hidden">
@@ -69,14 +73,14 @@
         <p class="divider"></p>
         <p class="total-text">Total: $<span id="cart-total">0.00</span></p>
 
+        <p class="divider"></p>
+
         <div class="cart-actions">
           <button id="clearCartBtn">Clear Cart</button>
           <a href="checkout.html">
             <button id="checkboxBtn">Proceed to Checkout</button>
           </a>
         </div>
-
-        <p class="divider"></p>
       </main>
       <footer>Footer</footer>
     </div>
