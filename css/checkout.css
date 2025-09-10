@@ -1,3 +1,8 @@
 /* Checkout, page 6 */
 /* checkout.js */
 /* checkout.css */
+
+.total-text span {
+  /* font-weight: bold; */
+  text-decoration: underline;
+}

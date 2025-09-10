@@ -41,15 +41,8 @@
 /* Product image */
 .cart-item-img {
   height: 50px;
+  width: 50px;
 }
-
-/* don't know what this is?? */
-/* .image-cart {
-  object-fit: cover;
-  border-radius: 6px;
-  border-bottom: 1px solid lightgray;
-  flex-shrink: 0;
-} */
 
 /* Product content */
 .content-cart {
@@ -72,6 +65,9 @@
   color: rgb(153, 52, 52);
 }
 
+.price-cart {
+}
+
 /* Price, Subtotal */
 .content-cart p {
   margin: 0;
@@ -87,6 +83,9 @@
   font-size: 0.9rem;
   color: #8b3131;
   text-align: center;
+}
+
+.subtotal-cart {
 }
 
 /* Cart actions (clear / checkout) */
@@ -105,19 +104,19 @@
 }
 
 #clearCartBtn {
-  background: #bbb;
-  color: #fff;
+  background: #fff;
+  color: black;
 }
 
 #clearCartBtn:hover {
   background: #999;
 }
 
-#checkboxBtn {
+#checkoutBtn {
   background: #8b3131;
   color: #fff;
 }
 
-#checkboxBtn:hover {
+#checkoutBtn:hover {
   background: #a94444;
 }

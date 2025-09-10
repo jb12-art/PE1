@@ -10,7 +10,8 @@
     <link rel="icon" type="image/x-icon" href="images/favicon-32x32.png" />
     <title>Checkout Page</title>
     <link rel="stylesheet" href="css/styles.css" />
-    <script type="module" src="js/cart.js" defer></script>
+    <script type="module" src="js/checkout.js" defer></script>
+
     <!-- font awesome link -->
     <script
       src="https://kit.fontawesome.com/f96e83bcf8.js"
@@ -69,7 +70,7 @@
         <div id="cart-items" class="container"></div>
 
         <p class="divider"></p>
-        <p class="total-text">Total $,-</p>
+        <p class="total-text">Total: $<span id="cart-total">0.00</span></p>
 
         <p class="divider"></p>
 
