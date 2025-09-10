@@ -153,7 +153,8 @@ export function renderCartPage() {
     });
   });
 
-  // // ----- Cart / Basket -----
+  // ----- Cart / Basket -----
+  // When the code is 'off', Cart view in cart.html / checkout.html is off.
   // if (basketToggle && basketDropdown) {
   //   basketToggle.addEventListener("click", () => {
   //     basketDropdown.classList.toggle("hidden");
