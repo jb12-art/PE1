@@ -56,22 +56,29 @@
   font-size: 1.2rem;
   font-weight: bold;
   margin: 0;
-  color: #8b3131;
 }
 
-.description-cart {
-  margin: 0;
-  font-size: 0.9rem;
-  color: rgb(153, 52, 52);
+.original-price {
+  text-decoration: line-through;
+  color: #999;
+  margin-right: 8px;
 }
 
+.discounted-price {
+  font-weight: bold;
+}
+
+/* not in use */
 .price-cart {
 }
 
-/* Price, Subtotal */
+/* Subtotal color is overwriten by this class*/
 .content-cart p {
   margin: 0;
-  color: #333;
+}
+
+.subtotal-cart {
+  text-decoration: underline;
 }
 
 .qty-input {
@@ -81,42 +88,34 @@
   border-radius: 6px;
   margin-left: 5px;
   font-size: 0.9rem;
-  color: #8b3131;
   text-align: center;
 }
 
-.subtotal-cart {
-}
-
-/* Cart actions (clear / checkout) */
-.cart-actions {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
-}
-
-.cart-actions button {
+/* Clear Cart / Checkout */
+.clear-cart-btn,
+.checkout-btn {
   padding: 10px 20px;
   border: none;
   border-radius: 6px;
   cursor: pointer;
   font-size: 1rem;
+  margin-left: 20px;
 }
 
-#clearCartBtn {
-  background: #fff;
+.clear-cart-btn {
+  background: #ddd;
   color: black;
 }
 
-#clearCartBtn:hover {
+.clear-cart-btn:hover {
   background: #999;
 }
 
-#checkoutBtn {
-  background: #8b3131;
-  color: #fff;
+.checkout-btn {
+  background: #ddd;
+  color: black;
 }
 
-#checkoutBtn:hover {
-  background: #a94444;
+.checkout-btn:hover {
+  background: #999;
 }

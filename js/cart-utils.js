@@ -1,11 +1,12 @@
 // cart-utils.js
 // Shared cart logic for index.html, product-detail.html, cart.html and checkout.html
 
-// Get & Save Cart
+// Get cart
 export function getCart() {
   return JSON.parse(localStorage.getItem("cart")) || [];
 }
 
+// Save Cart
 export function saveCart(cart) {
   localStorage.setItem("cart", JSON.stringify(cart));
 }
@@ -120,13 +121,23 @@ export function renderCartPage() {
     title.className = "title-cart";
     title.textContent = item.title;
 
-    const description = document.createElement("p");
-    description.className = "description-cart";
-    description.textContent = item.description || "";
-
     const priceEl = document.createElement("p");
     priceEl.className = "price-cart";
+
     priceEl.textContent = `Price: $${item.discountedPrice.toFixed(2)}`;
+
+    if (item.discountedPrice < item.price) {
+      // Show original price crossed out + discounted price
+      priceEl.innerHTML = `<span class="original-price">$${item.price.toFixed(
+        2
+      )}</span>
+        <span class="discounted-price">$${item.discountedPrice.toFixed(
+          2
+        )}</span>`;
+    } else {
+      // no discount, just original price
+      priceEl.textContent = `Price: $${item.price.toFixed(2)}`;
+    }
 
     const qtyLabel = document.createElement("label");
     qtyLabel.textContent = "Qty: ";
@@ -152,7 +163,6 @@ export function renderCartPage() {
 
     // assemble content
     content.appendChild(title);
-    content.appendChild(description);
     content.appendChild(priceEl);
     content.appendChild(qtyLabel);
     content.appendChild(subtotalEl);
