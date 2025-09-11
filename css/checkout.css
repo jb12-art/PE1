@@ -2,7 +2,91 @@
 /* checkout.js */
 /* checkout.css */
 
+.total-text {
+  margin: auto;
+  max-width: 700px;
+  width: 100%;
+  text-align: start;
+  box-sizing: border-box;
+}
+
 .total-text span {
-  /* font-weight: bold; */
   text-decoration: underline;
+}
+
+.payment-container {
+  margin: auto;
+}
+
+.payment-form {
+  margin: auto;
+  max-width: 700px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.payment-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.card-fields {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.card-row input {
+  width: 100%;
+}
+
+.hidden {
+  display: none;
+}
+
+.divider {
+  border: 1px solid black;
+}
+
+.address-title,
+.payment-title {
+  text-align: center;
+  font-weight: bold;
+}
+
+.delivery-address-container {
+  margin: auto;
+}
+
+.address-form {
+  margin: auto;
+  max-width: 700px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.checkout-btn-container {
+  margin: 50px auto;
+  display: flex;
+  justify-content: center;
+}
+
+.checkout-buy-btn {
+  display: inline-block;
+  padding: 10px 15px;
+  border: 1px solid black;
+  border-radius: 6px;
+  text-decoration: none;
+  background-color: #ddd;
+  color: black;
+  cursor: pointer;
 }

@@ -75,25 +75,94 @@
         <p class="divider"></p>
 
         <div class="payment-container">
-          <p>Payment method</p>
-          <form>
-          <label for="credit-card">Credit card number</label>
-          <input
-          type="text"
-          name="credit-card"
-          id="credit-card"
-          aria-required="true"
-          aria-label="Write your credit card number"
-          class="form__input"
-          />
+          <p class="payment-title">Payment method</p>
+          <form class="payment-form">
+            <!-- Payment Options -->
+            <fieldset class="payment-options">
+              <legend>Select a payment method:</legend>
+
+              <label>
+                <input
+                  type="radio"
+                  name="
+                  payment-method"
+                  value="card"
+                />
+                Credit / Debit card
+              </label>
+
+              <label>
+                <input type="radio" name="payment-method" value="paypal" />
+                PayPal
+              </label>
+
+              <label>
+                <input type="radio" name="payment-method" value="bank" />
+                Bank Transfer
+              </label>
+            </fieldset>
+
+            <!-- Card Payment Fields -->
+            <div class="card-fields">
+              <label for="card-name">Cardholder Name</label>
+              <input
+                type="text"
+                name="card-name"
+                id="card-name"
+                class="form__input"
+                placeholder="full name"
+              />
+
+              <label for="card-number">Card number</label>
+              <input
+                type="text"
+                id="card-number"
+                class="form__input"
+                placeholder="1234 5678 910"
+              />
+
+              <div class="card-row">
+                <div>
+                  <label for="expiry-date">Expiry Date</label>
+                  <input
+                    type="text"
+                    id="expiry-date"
+                    name="expiry-date"
+                    class="form__input"
+                    placeholder="MM/YY"
+                  />
+                </div>
+
+                <div>
+                  <label for="cvv">CVV</label>
+                  <input
+                    type="text"
+                    id="cvv"
+                    name="cvv"
+                    class="form__input"
+                    placeholder="123"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <!-- PayPal Info (Hidden until selected) -->
+            <div class="paypal-fields hidden">
+              <p>PayPal</p>
+            </div>
+
+            <!-- Bank Transfer Info (Hidden until selected) -->
+            <div class="bank-fields hidden">
+              <p>Bank transfer</p>
+            </div>
+          </form>
         </div>
-        </form>
-        
+
         <p class="divider"></p>
 
         <div class="delivery-address-container">
-          <p>Delivery address</p>
-          <form>
+          <p class="address-title">Delivery address</p>
+          <form class="address-form">
             <label for="name">First name</label>
             <input
               type="text"
@@ -171,10 +240,13 @@
               required
             />
           </form>
+        </div>
+
+        <div class="checkout-btn-container">
           <a
             href="success.html"
-            class="checkout-buy-now-button"
             aria-label="Buy now button"
+            class="checkout-buy-btn"
           >
             Buy now
           </a>
