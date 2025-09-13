@@ -33,15 +33,30 @@
   margin-bottom: 15px;
 }
 
+legend {
+  height: 30px;
+}
+
 .card-fields {
   display: flex;
   flex-direction: column;
 }
 
 .card-row {
-  display: flex;
-  justify-content: space-between;
   gap: 10px;
+}
+
+.checkout-label-text {
+  display: flex;
+  margin-top: 5px;
+}
+
+.expiry-input-width {
+  max-width: 50px;
+}
+
+.cvv-input-length {
+  max-width: 50px;
 }
 
 .card-row input {

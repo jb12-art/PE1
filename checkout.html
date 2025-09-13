@@ -104,16 +104,16 @@
 
             <!-- Card Payment Fields -->
             <div class="card-fields">
-              <label for="card-name">Cardholder Name</label>
+              <label class="checkout-label-text" for="card-name">Cardholder Name</label>
               <input
                 type="text"
                 name="card-name"
                 id="card-name"
                 class="form__input"
-                placeholder="full name"
+                placeholder="John Doe"
               />
 
-              <label for="card-number">Card number</label>
+              <label class="checkout-label-text" for="card-number">Card number</label>
               <input
                 type="text"
                 id="card-number"
@@ -122,24 +122,32 @@
               />
 
               <div class="card-row">
-                <div>
-                  <label for="expiry-date">Expiry Date</label>
+                <label class="checkout-label-text" for="expiry-date">Expiry Date</label>
+                <div class="expiry-date-div">
                   <input
                     type="text"
                     id="expiry-date"
                     name="expiry-date"
-                    class="form__input"
-                    placeholder="MM/YY"
+                    maxlength="2"
+                    class="form__input expiry-input-width"
+                    placeholder="MM"
                   />
+                  <input type="text"
+                  id="expiry-date"
+                  name="expiry-date"
+                  maxlength="2"
+                  class="form__input expiry-input-width"
+                  placeholder="YY">
                 </div>
 
+                <label class="checkout-label-text" for="cvv">CVV</label>
                 <div>
-                  <label for="cvv">CVV</label>
                   <input
                     type="text"
                     id="cvv"
                     name="cvv"
-                    class="form__input"
+                    maxlength="3"
+                    class="form__input cvv-input-length"
                     placeholder="123"
                   />
                 </div>
@@ -163,7 +171,7 @@
         <div class="delivery-address-container">
           <p class="address-title">Delivery address</p>
           <form class="address-form">
-            <label for="name">First name</label>
+            <label class="checkout-label-text" for="name">First name</label>
             <input
               type="text"
               name="first name"
@@ -174,7 +182,7 @@
               required
             />
 
-            <label for="lastname">Last name</label>
+            <label class="checkout-label-text" for="lastname">Last name</label>
             <input
               type="text"
               name="last name"
@@ -185,7 +193,7 @@
               required
             />
 
-            <label for="email">E-mail address</label>
+            <label class="checkout-label-text" for="email">E-mail address</label>
             <input
               type="text"
               name="e-mail"
@@ -196,7 +204,7 @@
               required
             />
 
-            <label for="country">Country</label>
+            <label class="checkout-label-text" for="country">Country</label>
             <input
               type="text"
               name="country"
@@ -207,7 +215,7 @@
               required
             />
 
-            <label for="city">City</label>
+            <label class="checkout-label-text" for="city">City</label>
             <input
               type="text"
               name="city"
@@ -218,7 +226,7 @@
               required
             />
 
-            <label for="zip-code">Zip code</label>
+            <label class="checkout-label-text" for="zip-code">Zip code</label>
             <input
               type="text"
               name="zip-code"
@@ -229,7 +237,7 @@
               required
             />
 
-            <label for="address">Address</label>
+            <label class="checkout-label-text" for="address">Address</label>
             <input
               type="text"
               name="address"

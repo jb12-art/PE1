@@ -17,6 +17,15 @@
   .content-cart {
     align-items: center;
   }
+
+    /* cart buttons div */
+  .cart-btns-div {
+    text-align: center;
+  }
+
+  .clear-cart-btn {
+    margin-bottom: 15px;
+  }
 }
 
 .container {
@@ -36,6 +45,10 @@
   border: 1px solid #ddd;
   margin-bottom: 20px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.cart-empty-text {
+  text-align: center;
 }
 
 /* Product image */
@@ -72,7 +85,7 @@
 /* .price-cart {
 } */
 
-/* Subtotal color is overwriten by this class*/
+/* Subtotal color is overwritten by this class*/
 .content-cart p {
   margin: 0;
 }
@@ -92,6 +105,11 @@
 }
 
 /* Clear Cart / Checkout */
+/* cart buttons div */
+.cart-btns-div {
+  text-align: center;
+}
+
 .clear-cart-btn,
 .checkout-btn {
   padding: 10px 20px;

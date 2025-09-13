@@ -98,7 +98,7 @@ export function renderCartPage() {
   cartItemsContainer.innerHTML = "";
 
   if (cart.length === 0) {
-    cartItemsContainer.innerHTML = "<p>Your cart is empty.</p>";
+    cartItemsContainer.innerHTML = "<p class='cart-empty-text'>Your cart is empty.</p>";
     totalText.textContent = "0.00";
     return;
   }
