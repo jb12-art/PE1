@@ -96,7 +96,7 @@ async function fetchAndCreateProducts() {
     // show a fallback error in the carousel too
 
     if (carousel) {
-      carousel.innerHTML = "<p class='error-message'>No banner available.</p>";
+      carousel.innerHTML = "<p class='error-message'>Error: No banner available.</p>";
     }
   } finally {
     loadingIndicator.classList.add("hidden"); // Hide loading

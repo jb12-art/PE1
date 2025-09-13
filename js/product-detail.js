@@ -31,7 +31,7 @@ async function fetchAndCreateProducts() {
     const id = params.get("id");
 
     if (!id) {
-      container.textContent = "No product ID provided.";
+      container.textContent = "Can't connect to server. (No product ID provided) Refresh the page or Try again later";
       return;
     }
 

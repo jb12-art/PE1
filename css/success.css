@@ -1,5 +1,15 @@
 /* Success, Page 7 */
 
+.success-text {
+  text-align: center;
+  font-weight: bold;
+}
+
+.success-buy-btn {
+    margin-top: 50px;
+  text-align: center;
+}
+
 .home-success-btn {
   padding: 10px 15px;
   border: 1px solid black;
