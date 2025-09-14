@@ -17,15 +17,6 @@
   .content-cart {
     align-items: center;
   }
-
-    /* cart buttons div */
-  .cart-btns-div {
-    text-align: center;
-  }
-
-  .clear-cart-btn {
-    margin-bottom: 15px;
-  }
 }
 
 .container {
@@ -106,8 +97,9 @@
 
 /* Clear Cart / Checkout */
 /* cart buttons div */
-.cart-btns-div {
+.cart-btn-div {
   text-align: center;
+  margin-bottom: 50px;
 }
 
 .clear-cart-btn,
@@ -123,6 +115,7 @@
 .clear-cart-btn {
   background: #ddd;
   color: black;
+  margin-bottom: 25px;
 }
 
 .clear-cart-btn:hover {

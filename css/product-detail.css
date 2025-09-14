@@ -70,17 +70,31 @@
   margin: 10px auto;
   display: inline-block;
   max-width: fit-content;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.back-button:hover {
+  background-color: goldenrod;
+}
+
+.back-button:active {
+  transform: scale(0.98); /* 98% of its original size */ 
 }
 
 /* Link */
 .share-button {
-  background-color: #eee;
+  background-color: #de88f8;
   border: 1px solid #aaa;
   margin-left: 10px;
 }
 
 .share-button:hover {
-  background-color: #ddd;
+  background-color: #cd40f8;
+}
+
+.share-button:active {
+  transform: scale(0.98); /* 98% of its original size */ 
+  background-color: #de88f8;
 }
 
 /* Reviews */
