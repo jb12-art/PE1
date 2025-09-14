@@ -4,8 +4,6 @@
 @import url("./product-feed-page.css");
 @import url("./product-box.css");
 @import url("./product-detail.css");
-@import url("./register.css");
-@import url("./login.css");
 @import url("./cart.css");
 @import url("./checkout.css");
 @import url("./success.css");
@@ -205,38 +203,60 @@ h1 {
   text-align: center;
 }
 
-.form-container {
+/* ------ (Register.html, page 3) / (Login.html, page 4) ------ */
+.register-container, .login-container {
   margin: auto;
-  max-width: 500px;
-  padding-left: 1px;
-  padding-right: 9px;
 }
 
-.form_input {
+/* register-form is in checkout. */
+
+.register-btn {
+  margin-right: 20px;
+ background: aquamarine;
+}
+
+.register-back-btn {
+  text-decoration: none;
+  color: black;
+  background: palegoldenrod;
+}
+
+.register-back-btn, .register-btn {
+  padding: 10px 15px;
+  border-radius: 6px;
+  font-size: 15px;
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+
+
+/* .form_input {
   display: block;
   max-width: 490px;
   width: 100%;
-}
+} */
 
-.reg-log-div {
-  display: grid;
-}
-
-.input-one {
+.input-height {
   margin-bottom: 20px;
+  height: 25px;
 }
 
-.label {
+/* .label {
   display: inline-block;
+} */
+
+.reg-pass-text {
+  margin-top: 0;
+  font-size: 14px;
+  margin-bottom: 25px;
 }
 
-.reg-log-btn {
-  color: black;
-  padding: 6px 16px;
-  border: 1px solid #000;
-  border-radius: 4px;
-  font-size: 15px;
+/* (Login.html, page 4) */
+.login-btn {
+  margin-top: 25px;
 }
+
 
 footer {
   text-align: center;

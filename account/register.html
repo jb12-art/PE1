@@ -13,7 +13,7 @@
       src="https://kit.fontawesome.com/f96e83bcf8.js"
       crossorigin="anonymous"
     ></script>
-    <!-- <script src="js/script.js" defer></script> -->
+    
     <script src="../js/register.js" defer></script>
   </head>
   <body>
@@ -51,26 +51,23 @@
       </nav>
       <main class="main-page">
         <h1>Register</h1>
-        <div class="form-container">
-          <form id="registerForm" novalidate class="form">
-            <div class="reg-log-div">
+        <div class="register-container">
+          <form id="registerForm" novalidate class="register-form">
+            
               <label for="emailRegistration">Enter your email</label>
               <input
-                class="input-one form__input"
+                class="input-height form__input"
                 type="email"
                 name="email"
                 id="emailRegistration"
                 required
                 placeholder="email"
               />
-              <small class="error-message" id="emailError"></small>
-            </div>
-
-            <div class="reg-log-div">
+              <small class="error-message" id="emailError"></small>        
+            
               <label for="passwordRegistration">Enter your password</label>
-
               <input
-                class="form__input"
+                class="input-height form__input"
                 type="password"
                 name="password"
                 id="passwordRegistration"
@@ -80,12 +77,12 @@
               />
               <small class="error-message" id="passwordError"></small>
               <p class="reg-pass-text">At least 4 characters</p>
-            </div>
+            
 
             <div>
-              <input class="reg-log-btn" type="submit" value="Register" />
+              <input class="register-btn" type="submit" value="Register" />
 
-              <a class="back-button" href="../index.html">Back to products</a>
+              <a class="register-back-btn" href="../index.html">Back to products</a>
             </div>
           </form>
         </div>

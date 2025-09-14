@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.setItem("registeredUser", JSON.stringify(user));
     alert("Account created successfully, you can now login.");
 
-    // rederect to login page
+    // redirect to login page
     window.location.href = "login.html";
   });
 });
