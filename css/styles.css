@@ -133,6 +133,35 @@ nav a {
     padding: 10px 10px 10px 14px;
     margin-top: 10px;
   }
+
+  .register-back-btn, .register-btn, .login-no-account-btn {
+    padding: 10px 15px;
+    border-radius: 6px;
+    font-size: 15px;
+    border: 1px solid black;
+    cursor: pointer;
+    margin-bottom: 50px;
+}
+
+.login-btn-div {
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    max-width: fit-content;
+  }
+
+  .no-account-text {
+    display: contents;
+  }
+
+  .login-btn {
+    padding: 10px 15px;
+    border-radius: 6px;
+    font-size: 15px;
+    border: 1px solid black;
+    cursor: pointer;
+    margin-bottom: 20px;
+  }
 }
 
 /* Desktop */
@@ -146,6 +175,22 @@ nav a {
     z-index: 1000;
     padding: 10px 10px 10px 15px;
     margin-top: 10px;
+  }
+
+  .register-back-btn, .register-btn, .login-btn, .login-no-account-btn {
+    padding: 10px 15px;
+    border-radius: 6px;
+    font-size: 15px;
+    border: 1px solid black;
+    cursor: pointer;
+    margin-bottom: 50px;
+  }
+
+  .login-btn-div {
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
   }
 }
 
@@ -221,13 +266,10 @@ h1 {
   background-color: palegoldenrod;
 }
 
-.register-back-btn, .register-btn {
-  padding: 10px 15px;
-  border-radius: 6px;
-  font-size: 15px;
-  border: 1px solid black;
-  cursor: pointer;
-  margin-bottom: 50px;
+.reg-pass-text {
+  margin-top: 0;
+  font-size: 14px;
+  margin-bottom: 25px;
 }
 
 .input-height {
@@ -235,17 +277,18 @@ h1 {
   height: 25px;
 }
 
-.reg-pass-text {
-  margin-top: 0;
-  font-size: 14px;
-  margin-bottom: 25px;
-}
 
 /* (Login.html, page 4) */
 .login-btn {
-  margin-top: 25px;
+  background-color: rgb(160, 219, 255);
 }
 
+.login-no-account-btn {
+  text-align: center;
+  text-decoration: none;
+  color: black;
+  background-color: aquamarine;
+}
 
 footer {
   text-align: center;

@@ -2,8 +2,8 @@
 
 .success-icon-div {
   margin: auto;
-  max-width: 250px;
-  max-height: 250px;
+  max-width: 200px;
+  max-height: 200px;
   margin-top: 30px;
 }
 
@@ -15,7 +15,6 @@
 
 .success-text {
   text-align: center;
-  font-weight: bold;
 }
 
 .success-buy-btn {
