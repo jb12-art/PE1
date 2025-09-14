@@ -24,8 +24,9 @@
   cursor: pointer;
   border-style: solid;
   border-width: 1px;
-  border-radius: 4px;
+  border-radius: 6px;
   padding: 10px 20px;
+  font-size: 15px;
 }
 
 .help-text {
@@ -53,16 +54,6 @@
     margin-bottom: 40px;
   }
 
-  .right-arrow,
-.left-arrow {
-  background-color: rgb(230, 202, 77);
-  padding: 20px 10px;
-  border-style: solid;
-  border-width: 1px;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
 }
 
 /* Desktop */
@@ -80,14 +71,18 @@
 
   .right-arrow,
 .left-arrow {
+  margin: 10px;
+}
+}
+
+ .right-arrow,
+.left-arrow {
   background-color: rgb(230, 202, 77);
   padding: 30px 10px;
   border-style: solid;
   border-width: 1px;
   border-radius: 6px;
   cursor: pointer;
-  margin: 10px;
-}
 }
 
 .carousel-item {

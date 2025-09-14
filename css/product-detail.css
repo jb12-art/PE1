@@ -54,14 +54,19 @@
   gap: 8px;
 }
 
+.back-button, .share-button {
+  padding: 10px 15px;
+    border-radius: 6px;
+    font-size: 15px;
+  cursor: pointer;
+
+} 
+
 .back-button {
   text-decoration: none;
   color: black;
-  padding: 6px 16px;
   border: 1px solid #000;
-  border-radius: 4px;
-  background-color: rgba(0, 255, 242, 0.253);
-  font-size: 15px;
+  background-color: palegoldenrod;
   margin-left: 10px;
   display: inline-block;
   max-width: fit-content;
@@ -71,11 +76,7 @@
 .share-button {
   background-color: #eee;
   border: 1px solid #aaa;
-  border-radius: 6px;
-  padding: 6px 12px;
   margin-left: 10px;
-  cursor: pointer;
-  font-size: 14px;
 }
 
 .share-button:hover {
