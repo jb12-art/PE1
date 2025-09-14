@@ -67,7 +67,7 @@
   color: black;
   border: 1px solid #000;
   background-color: palegoldenrod;
-  margin: 10px auto;
+  margin: 25px 10px 25px 0px;
   display: inline-block;
   max-width: fit-content;
   transition: background-color 0.2s ease, transform 0.1s ease;
@@ -85,7 +85,6 @@
 .share-button {
   background-color: #de88f8;
   border: 1px solid #aaa;
-  margin-left: 10px;
 }
 
 .share-button:hover {
