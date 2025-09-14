@@ -212,13 +212,13 @@ h1 {
 
 .register-btn {
   margin-right: 20px;
- background: aquamarine;
+ background-color: aquamarine;
 }
 
 .register-back-btn {
   text-decoration: none;
   color: black;
-  background: palegoldenrod;
+  background-color: palegoldenrod;
 }
 
 .register-back-btn, .register-btn {
@@ -227,6 +227,7 @@ h1 {
   font-size: 15px;
   border: 1px solid black;
   cursor: pointer;
+  margin-bottom: 50px;
 }
 
 

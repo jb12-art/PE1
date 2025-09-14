@@ -12,7 +12,7 @@
 }
 
 .register {
-  background-color: rgb(163, 255, 224);
+  background-color: aquamarine;
 }
 
 .login {
@@ -41,20 +41,28 @@
   margin-top: 50px;
 }
 
-.left-arrow {
-  margin-right: 16px;
-}
-
 /* Mobile */
 /* Carousel Banner */
-.carousel {
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-  /* max-width: 300px; */
-  height: 300px;
-  border-radius: 8px;
-  margin-bottom: 40px;
+@media (max-width: 600px) {
+  .carousel {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 300px;
+    border-radius: 8px;
+    margin-bottom: 40px;
+  }
+
+  .right-arrow,
+.left-arrow {
+  background-color: rgb(230, 202, 77);
+  padding: 20px 10px;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
 }
 
 /* Desktop */
@@ -69,6 +77,17 @@
     border-radius: 8px;
     margin-bottom: 40px;
   }
+
+  .right-arrow,
+.left-arrow {
+  background-color: rgb(230, 202, 77);
+  padding: 30px 10px;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin: 10px;
+}
 }
 
 .carousel-item {
@@ -95,20 +114,6 @@
   border-radius: 6px;
   text-decoration: none;
   color: black;
-}
-
-.right-arrow {
-  margin-left: 16px;
-}
-
-.right-arrow,
-.left-arrow {
-  background-color: rgb(230, 202, 77);
-  padding: 10px;
-  border-style: solid;
-  border-width: 1px;
-  border-radius: 6px;
-  cursor: pointer;
 }
 
 /* loading text on screen when API is loading */
