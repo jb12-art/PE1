@@ -157,9 +157,6 @@ function displayProducts(products) {
 
     // 'Add to Cart' button, hide/show function
     if (isUserLoggedIn()) {
-      const addDiv = document.createElement("div");
-      addDiv.parentNode.insertBefore(addDiv, addToCartBtn);
-
       const addToCartBtn = document.createElement("button");
       addToCartBtn.className = "add-to-cart-button";
       addToCartBtn.textContent = "Add to Cart"; // add product to cart and checkout
@@ -168,7 +165,6 @@ function displayProducts(products) {
         addToCart(product);
         updateBasketDisplay(); // keep dropdown in sync
       });
-      addDiv.appendChild(addToCartBtn);
       content.appendChild(addToCartBtn); // styled in: product-box.css
     }
 
