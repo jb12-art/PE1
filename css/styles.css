@@ -93,6 +93,11 @@ nav a {
   padding: 10px 20px;
   font-size: 1rem;
   text-decoration: none;
+  background-color: cornsilk;
+}
+
+nav a:hover {
+  background-color: rgb(191, 185, 163);
 }
 
 /* Cart/ basket */
@@ -214,6 +219,14 @@ nav a {
 .remove-button {
   border: 1px solid lightcoral;
   margin-left: 3px;
+}
+
+.remove-button:hover {
+  border: 2px solid lightcoral;
+}
+
+.remove-button:active {
+  background-color: rgb(244, 91, 91);
 }
 
 /* User login box */

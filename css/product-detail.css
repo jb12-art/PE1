@@ -56,10 +56,9 @@
 
 .back-button, .share-button {
   padding: 10px 15px;
-    border-radius: 6px;
-    font-size: 15px;
+  border-radius: 6px;
+  font-size: 15px;
   cursor: pointer;
-
 } 
 
 .back-button {

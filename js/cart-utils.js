@@ -157,7 +157,7 @@ export function renderCartPage() {
     ).toFixed(2)}`;
 
     const removeBtn = document.createElement("button");
-    removeBtn.className = "remove-button";
+    removeBtn.className = "remove-button-cart";
     removeBtn.textContent = "Remove";
     removeBtn.dataset.index = index;
 
@@ -190,7 +190,7 @@ export function renderCartPage() {
   });
 
   // Remove item
-  document.querySelectorAll(".remove-button").forEach((btn) => {
+  document.querySelectorAll(".remove-button, .remove-button-cart").forEach((btn) => {
     btn.addEventListener("click", (e) => {
       const cart = getCart();
       const i = e.target.dataset.index;
