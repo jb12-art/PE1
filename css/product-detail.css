@@ -65,19 +65,18 @@
   text-decoration: none;
   color: black;
   border: 1px solid #000;
-  background-color: palegoldenrod;
   margin: 25px 10px 25px 0px;
   display: inline-block;
   max-width: fit-content;
-  transition: background-color 0.2s ease, transform 0.1s ease;
+  background-color: palegoldenrod;
 }
 
 .back-button:hover {
-  background-color: goldenrod;
+  background-color: rgb(220, 215, 157);
 }
 
 .back-button:active {
-  transform: scale(0.98); /* 98% of its original size */ 
+  background-color: palegoldenrod;
 }
 
 /* Link */

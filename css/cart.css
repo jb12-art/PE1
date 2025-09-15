@@ -153,9 +153,14 @@
 }
 
 .checkout-btn {
-  background: #ddd;
+  background-color: #39f9de;
 }
 
 .checkout-btn:hover {
-  background: #999;
+  background-color: #33dfc8;
+}
+
+.checkout-btn:active {
+  background-color: #39f9de;
+
 }

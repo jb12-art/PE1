@@ -17,7 +17,7 @@
   text-align: center;
 }
 
-.success-buy-btn {
+.home-success-btn-div {
   margin: 50px 50px;
   text-align: center;
 }
@@ -27,6 +27,14 @@
   border: 1px solid black;
   border-radius: 6px;
   text-decoration: none;
-  background-color: lightcoral;
+  background-color: #f382f7;
   color: black;
+}
+
+.home-success-btn:hover {
+  background-color: #d774da;
+}
+
+.home-success-btn:active {
+  background-color: #f382f7;
 }
