@@ -117,6 +117,30 @@
   background-color: rgb(244, 91, 91);
 }
 
+/* Total: price */
+.divider {
+  border: 1px solid black;
+}
+
+.total-price-div {
+  margin: auto;
+  margin-bottom: 30px;
+  /* background-color:floralwhite ; */
+  background-color: lemonchiffon;
+  width: 500px;
+  border: 1px solid black;
+  border-radius: 6px;
+}
+
+.total-price {  
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.total-price span {
+  text-decoration: underline;
+}
+
 /* Clear Cart / Checkout */
 /* cart buttons div */
 .cart-btn-div {

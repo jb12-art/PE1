@@ -2,17 +2,9 @@
 /* checkout.js */
 /* checkout.css */
 
-.total-text {  
-  text-align: center;
-  box-sizing: border-box;
-}
-
-.total-text span {
-  text-decoration: underline;
-}
-
 .payment-container {
   margin: auto;
+  margin-top: 50px;
 }
 
 /* All forms */
@@ -59,10 +51,6 @@ legend {
 
 .hidden {
   display: none;
-}
-
-.divider {
-  border: 1px solid black;
 }
 
 .address-title,
