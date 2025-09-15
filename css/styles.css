@@ -336,9 +336,39 @@ h1 {
 }
 
 footer {
-  text-align: center;
-  align-content: center;
-  height: 80px;
   background-color: black;
   color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.about-contact-div {
+  /* padding: 10px;
+  border: 1px solid white;
+  max-width: fit-content; */
+}
+
+.about-us {
+  border: 1px solid white;
+  max-width: fit-content;
+  padding: 10px;
+}
+
+.contact-us {
+  padding: 10px;
+  border: 1px solid white;
+  max-width: fit-content;
+}
+
+.social-media-icons {
+  margin: auto;
+  margin-bottom: 50px;
+  padding: 10px;
+  border: 1px solid white;
+  max-width: fit-content;
+}
+
+.copyright {
+  margin: auto;
+ max-width: fit-content;
 }
