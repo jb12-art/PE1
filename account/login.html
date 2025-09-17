@@ -1,5 +1,5 @@
 <!-- Login, page 4 -->
-  <!-- CSS is in style.css, checkout.css -->
+<!-- CSS is in style.css, checkout.css -->
 
 <!-- connects to index.html, page 1 -->
 <!-- Register, page 3 -->
@@ -55,8 +55,10 @@
       </nav>
       <main class="main-page">
         <h1>Login</h1>
+
         <div class="login-container">
-        <form id="loginForm" class="login-form">
+          <div class="login-message" id="loginMessage"></div>
+          <form id="loginForm" class="login-form">
             <label class="label" for="emailLogin">Email</label>
             <input
               class="input-height form_input"
@@ -66,30 +68,28 @@
               placeholder="email"
             />
             <small id="loginEmailError" class="error"></small>
-          
+
             <label for="passwordLogin">Password</label>
             <input
-            class="input-height form_input"
+              class="input-height form_input"
               type="password"
               id="passwordLogin"
               required
               placeholder="password"
             />
             <small id="loginPasswordError" class="error"></small>
-          
-            
-            
-            <div class="login-btn-div ">
+
+            <div class="login-btn-div">
               <input class="login-btn" type="submit" value="Login" />
-               <p class="no-account-text">Don't have an account?
-              <a class="login-no-account-btn" href="register.html">Register here</a>
+              <p class="no-account-text">
+                Don't have an account?
+                <a class="login-no-account-btn" href="register.html"
+                  >Register here</a
+                >
               </p>
-              </div>
-            
+            </div>
           </form>
         </div>
-
-        <div id="loginMessage"></div>
       </main>
       <footer>Footer</footer>
     </div>

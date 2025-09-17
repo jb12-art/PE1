@@ -107,10 +107,13 @@
 .remove-button-cart {
   border: 1px solid lightcoral;
   max-width: fit-content;
+  transition: box-shadow 0.15s ease, transform 0.15s ease, border 0.15s ease;
 }
 
 .remove-button-cart:hover {
-  border: 2px solid lightcoral;
+  border: 1px solid lightcoral;
+  box-shadow: inset 0 0 5px rgba(240, 128, 128, 0.7); /* shadow inside border */
+  transform: scale(0.97);
 }
 
 .remove-button-cart:active {
@@ -132,7 +135,7 @@
   border-radius: 6px;
 }
 
-.total-price {  
+.total-price {
   text-align: center;
   box-sizing: border-box;
 }
@@ -171,9 +174,8 @@
 }
 
 .clear-cart-btn:active {
-  transform: scale(0.98); /* 98% of its original size */ 
+  transform: scale(0.98); /* 98% of its original size */
   background-color: lightcoral;
-
 }
 
 .checkout-btn {
@@ -186,5 +188,4 @@
 
 .checkout-btn:active {
   background-color: #39f9de;
-
 }

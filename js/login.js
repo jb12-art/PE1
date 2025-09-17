@@ -41,16 +41,16 @@ document.addEventListener("DOMContentLoaded", () => {
       password.value.trim() === storedUser.password
     ) {
       // Login success
-      loginMessage.textContent = "Login successful, redirecting";
+      loginMessage.textContent = "Login successful, redirecting to Home page";
       loginMessage.style.color = "green";
 
       // Mark user as logged in
       localStorage.setItem("isLoggedIn", "true");
 
-      // Rederecting to homepage after 1 second
+      // Rederecting to homepage after 2 second
       setTimeout(() => {
         window.location.href = "../index.html";
-      }, 1000);
+      }, 2000);
     } else {
       loginMessage.textContent = "Invalid email or password.";
       loginMessage.style.color = "red";

@@ -30,7 +30,6 @@ body {
   text-align: center;
 }
 
-/* ------------------- Mobile view --------------- */
 header {
   text-align: center;
   align-content: center;
@@ -139,16 +138,18 @@ nav a:hover {
     margin-top: 10px;
   }
 
-  .register-back-btn, .register-btn, .login-no-account-btn {
+  .register-back-btn,
+  .register-btn,
+  .login-no-account-btn {
     padding: 10px 15px;
     border-radius: 6px;
     font-size: 15px;
     border: 1px solid black;
     cursor: pointer;
     margin-bottom: 50px;
-}
+  }
 
-.login-btn-div {
+  .login-btn-div {
     margin-bottom: 50px;
     display: flex;
     flex-direction: column;
@@ -182,7 +183,10 @@ nav a:hover {
     margin-top: 10px;
   }
 
-  .register-back-btn, .register-btn, .login-btn, .login-no-account-btn {
+  .register-back-btn,
+  .register-btn,
+  .login-btn,
+  .login-no-account-btn {
     padding: 10px 15px;
     border-radius: 6px;
     font-size: 15px;
@@ -211,10 +215,6 @@ nav a:hover {
   font-size: 1rem;
   margin-bottom: 14px;
 }
-
-/* product text */
-/* .basket-item {
-} */
 
 .remove-button {
   border: 1px solid lightcoral;
@@ -255,14 +255,32 @@ nav a:hover {
   cursor: pointer;
 }
 
-/* styles shared for register.html, login.html, cart.html */
-/* H1 is shared by, register.html, login.html, cart.html */
+/* Register / Login messages */
+.login-message,
+.register-message {
+  text-align: center;
+}
+
+.login-message.success,
+.register-message.success {
+  color: green;
+}
+
+.login-message.error,
+.register-message.error {
+  color: red;
+}
+
+/* H1 is shared by all pages*/
 h1 {
   text-align: center;
 }
 
+/* styles shared for register.html, login.html, cart.html */
+
 /* ------ (Register.html, page 3) / (Login.html, page 4) ------ */
-.register-container, .login-container {
+.register-container,
+.login-container {
   margin: auto;
 }
 
@@ -270,7 +288,7 @@ h1 {
 
 .register-btn {
   margin-right: 20px;
- background-color: aquamarine;
+  background-color: aquamarine;
 }
 
 .register-btn:hover {
@@ -306,18 +324,17 @@ h1 {
   height: 25px;
 }
 
-
 /* (Login.html, page 4) */
 .login-btn {
   background-color: rgb(160, 219, 255);
 }
 
 .login-btn:hover {
-    background-color: rgb(137, 185, 215);
+  background-color: rgb(137, 185, 215);
 }
 
 .login-btn:active {
-    background-color: rgb(160, 219, 255);
+  background-color: rgb(160, 219, 255);
 }
 
 .login-no-account-btn {
@@ -335,6 +352,7 @@ h1 {
   background-color: aquamarine;
 }
 
+/* Footer for all pages */
 footer {
   background-color: black;
   color: white;
@@ -370,5 +388,5 @@ footer {
 
 .copyright {
   margin: auto;
- max-width: fit-content;
+  max-width: fit-content;
 }

@@ -96,7 +96,8 @@ async function fetchAndCreateProducts() {
     // show a fallback error in the carousel too
 
     if (carousel) {
-      carousel.innerHTML = "<p class='error-message'>Error: No banner available.</p>";
+      carousel.innerHTML =
+        "<p class='error-message'>Error: No banner available.</p>";
     }
   } finally {
     loadingIndicator.classList.add("hidden"); // Hide loading
@@ -154,20 +155,6 @@ function displayProducts(products) {
     // Assemble grid products
     content.appendChild(title);
     content.appendChild(price);
-
-    // 'Add to Cart' button, hide/show function
-    if (isUserLoggedIn()) {
-      const addToCartBtn = document.createElement("button");
-      addToCartBtn.className = "add-to-cart-button";
-      addToCartBtn.textContent = "Add to Cart"; // add product to cart and checkout
-
-      addToCartBtn.addEventListener("click", () => {
-        addToCart(product);
-        updateBasketDisplay(); // keep dropdown in sync
-      });
-      content.appendChild(addToCartBtn); // styled in: product-box.css
-    }
-
     box.appendChild(imageLink);
     box.appendChild(content);
     container.appendChild(box);

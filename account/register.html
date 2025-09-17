@@ -1,5 +1,5 @@
 <!-- Register, page 3 -->
- <!-- CSS is in style.css, checkout.css -->
+<!-- CSS is in style.css, checkout.css -->
 <!-- connects to index.html, page 1 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -14,7 +14,7 @@
       src="https://kit.fontawesome.com/f96e83bcf8.js"
       crossorigin="anonymous"
     ></script>
-    
+
     <script src="../js/register.js" defer></script>
   </head>
   <body>
@@ -53,37 +53,38 @@
       <main class="main-page">
         <h1>Register</h1>
         <div class="register-container">
+          <div class="register-message" id="registerMessage"></div>
           <form id="registerForm" novalidate class="register-form">
-            
-              <label for="emailRegistration">Enter your email</label>
-              <input
-                class="input-height form__input"
-                type="email"
-                name="email"
-                id="emailRegistration"
-                required
-                placeholder="email"
-              />
-              <small class="error-message" id="emailError"></small>        
-            
-              <label for="passwordRegistration">Enter your password</label>
-              <input
-                class="input-height form__input"
-                type="password"
-                name="password"
-                id="passwordRegistration"
-                required
-                minlength="4"
-                placeholder="password"
-              />
-              <small class="error-message" id="passwordError"></small>
-              <p class="reg-pass-text">At least 4 characters</p>
-            
+            <label for="emailRegistration">Enter your email</label>
+            <input
+              class="input-height form__input"
+              type="email"
+              name="email"
+              id="emailRegistration"
+              required
+              placeholder="email"
+            />
+            <small class="error-message" id="emailError"></small>
+
+            <label for="passwordRegistration">Enter your password</label>
+            <input
+              class="input-height form__input"
+              type="password"
+              name="password"
+              id="passwordRegistration"
+              required
+              minlength="4"
+              placeholder="password"
+            />
+            <small class="error-message" id="passwordError"></small>
+            <p class="reg-pass-text">At least 4 characters</p>
 
             <div>
               <input class="register-btn" type="submit" value="Register" />
 
-              <a class="register-back-btn" href="../index.html">Back to products</a>
+              <a class="register-back-btn" href="../index.html"
+                >Back to products</a
+              >
             </div>
           </form>
         </div>

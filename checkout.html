@@ -76,9 +76,9 @@
               <label>
                 <input
                   type="radio"
-                  name="
-                  payment-method"
+                  name="payment-method"
                   value="card"
+                  checked
                 />
                 Credit / Debit card
               </label>
@@ -96,7 +96,9 @@
 
             <!-- Card Payment Fields -->
             <div class="card-fields">
-              <label class="checkout-label-text" for="card-name">Cardholder Name</label>
+              <label class="checkout-label-text" for="card-name"
+                >Cardholder Name</label
+              >
               <input
                 type="text"
                 name="card-name"
@@ -105,7 +107,9 @@
                 placeholder="John Doe"
               />
 
-              <label class="checkout-label-text" for="card-number">Card number</label>
+              <label class="checkout-label-text" for="card-number"
+                >Card number</label
+              >
               <input
                 type="text"
                 id="card-number"
@@ -114,7 +118,9 @@
               />
 
               <div class="card-row">
-                <label class="checkout-label-text" for="expiry-date">Expiry Date</label>
+                <label class="checkout-label-text" for="expiry-date"
+                  >Expiry Date</label
+                >
                 <div class="expiry-date-div">
                   <input
                     type="text"
@@ -124,12 +130,14 @@
                     class="input-height form__input expiry-input-width"
                     placeholder="MM"
                   />
-                  <input type="text"
-                  id="expiry-date"
-                  name="expiry-date"
-                  maxlength="2"
-                  class="input-height form__input expiry-input-width"
-                  placeholder="YY">
+                  <input
+                    type="text"
+                    id="expiry-date"
+                    name="expiry-date"
+                    maxlength="2"
+                    class="input-height form__input expiry-input-width"
+                    placeholder="YY"
+                  />
                 </div>
 
                 <label class="checkout-label-text" for="cvv">CVV</label>
@@ -185,7 +193,9 @@
               required
             />
 
-            <label class="checkout-label-text" for="email">E-mail address</label>
+            <label class="checkout-label-text" for="email"
+              >E-mail address</label
+            >
             <input
               type="text"
               name="e-mail"
@@ -247,6 +257,7 @@
             href="success.html"
             aria-label="Buy now button"
             class="checkout-buy-btn"
+            id="buyNowBtn"
           >
             Buy now
           </a>

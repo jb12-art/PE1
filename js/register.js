@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const password = document.querySelector("#passwordRegistration");
   const emailError = document.querySelector("#emailError");
   const passwordError = document.querySelector("#passwordError");
+  const registerMessage = document.querySelector("#registerMessage");
 
   form.addEventListener("submit", (e) => {
     e.preventDefault(); // prevent reload until we validate & store
@@ -13,6 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let isValid = true;
     emailError.textContent = "";
     passwordError.textContent = "";
+    registerMessage.textContent = "";
 
     // Validate email
     if (!email.value.trim()) {
@@ -41,9 +43,15 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     localStorage.setItem("registeredUser", JSON.stringify(user));
-    alert("Account created successfully, you can now login.");
 
-    // redirect to login page
-    window.location.href = "login.html";
+    // Show registration success message
+    registerMessage.textContent =
+      "Account created successfully, redirecting to login";
+    registerMessage.classList.add("success");
+
+    // redirect to login page after 2 seconds
+    setTimeout(() => {
+      window.location.href = "login.html";
+    }, 2000);
   });
 });
