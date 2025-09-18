@@ -34,7 +34,7 @@ header {
   text-align: center;
   align-content: center;
   height: 100px;
-  background-color: black;
+  background-color: #fbca9e;
 }
 
 .link {
@@ -42,8 +42,8 @@ header {
 }
 
 .logo-text {
-  background-color: black;
-  color: white;
+  background-color: #fbca9e;
+  color: rgb(255, 255, 255);
   margin: 0px;
   font-size: 32px;
   font-weight: bold;
@@ -354,39 +354,61 @@ h1 {
 
 /* Footer for all pages */
 footer {
-  background-color: black;
-  color: white;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: #fbca9e;
+  color: rgb(0, 0, 0);
 }
 
-.about-contact-div {
-  /* padding: 10px;
-  border: 1px solid white;
-  max-width: fit-content; */
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+  width: 100%;
+  max-width: 1000px;
 }
 
-.about-us {
-  border: 1px solid white;
-  max-width: fit-content;
-  padding: 10px;
+.footer-section h3 {
+  margin-top: 0;
+  /* border: 1px solid white; */
+  font-size: 1.1rem;
+  padding-bottom: 5px;
 }
 
-.contact-us {
-  padding: 10px;
-  border: 1px solid white;
-  max-width: fit-content;
+.footer-section p,
+.footer-section ul {
+  margin: 8px 0;
+  font-size: 0.9rem;
 }
 
-.social-media-icons {
-  margin: auto;
-  margin-bottom: 50px;
-  padding: 10px;
-  border: 1px solid white;
-  max-width: fit-content;
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 5px;
+}
+
+.footer-section ul li a {
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+}
+
+.footer-section ul li a:hover {
+  text-decoration: underline;
+}
+
+.social-icons a {
+  margin-right: 10px;
+  color: white;
+  font-size: 1.2rem;
+  text-decoration: none;
 }
 
 .copyright {
-  margin: auto;
-  max-width: fit-content;
+  margin-top: 20px;
+  font-size: 0.85rem;
 }
