@@ -1,33 +1,33 @@
 // Shared Header / Footer to all .html pages
 
 async function loadLayout() {
-  // Determine the correct path for header/footer
-  // If the current page is in a subfolder (URL contains a "/something/"),
-  // use "../", otherwise use "./"
-  const isInSubfolder =
-    window.location.pathname.split("/").filter(boolean).length > 1;
-  const basePath = isInSubfolder ? "../" : "./";
+  // Dynamically find site base (Works both locally and on GitHub Pages)
+  const repoName = window.location.hostname.includes("github.io")
+    ? window.location.pathname.split("/")[1] + "/"
+    : "";
+
+  const siteBase = window.location.origin + "/" + repoName;
+
+  const headerURL = siteBase + "header.html";
+  const footerURL = siteBase + "footer.html";
 
   try {
-    // Load header
     const headerPlaceholder = document.getElementById("header-placeholder");
     if (headerPlaceholder) {
-      const headerRes = await fetch(`${basePath}header.html`);
+      const headerRes = await fetch(headerURL);
       if (!headerRes.ok) throw new Error("Failed to load header.html");
       headerPlaceholder.innerHTML = await headerRes.text();
     }
 
-    // Load footer
     const footerPlaceholder = document.getElementById("footer-placeholder");
     if (footerPlaceholder) {
-      const footerRes = await fetch(`${basePath}footer.html`);
+      const footerRes = await fetch(footerURL);
       if (!footerRes.ok) throw new Error("Failed to load footer.html");
       footerPlaceholder.innerHTML = await footerRes.text();
     }
   } catch (err) {
-    console.error("Error loading layout:", err);
+    console.error("Error loading header/footer:", err);
   }
 }
 
-// Run on page load
 document.addEventListener("DOMContentLoaded", loadLayout);
