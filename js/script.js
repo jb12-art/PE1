@@ -5,11 +5,7 @@
 // script.js is styled in product-box.css
 
 // Import shared cart-function
-import {
-  addToCart,
-  isUserLoggedIn,
-  updateBasketDisplay,
-} from "./cart-utils.js";
+import { isUserLoggedIn, updateBasketDisplay } from "./cart-utils.js";
 
 const API_URL = "https://v2.api.noroff.dev/online-shop";
 
