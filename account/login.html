@@ -18,18 +18,21 @@
       crossorigin="anonymous"
     ></script>
 
+    <script type="module" src="/js/include-layout.js" defer></script>
     <script src="../js/login.js" defer></script>
   </head>
   <body>
     <div class="page-wrapper">
-      <header>
+      <div id="header-placeholder"></div>
+
+      <!-- <header>
         <div>
           <a class="link" href="../index.html"
             ><p class="logo-text">&#10022;HotView</p>
             <p class="logo-text">Labs&#10022;</p></a
           >
         </div>
-      </header>
+      </header> -->
       <!-- mobile navigation -->
       <input type="checkbox" id="menu-checkbox" />
       <label for="menu-checkbox" class="hamburger-icon"
@@ -91,7 +94,10 @@
           </form>
         </div>
       </main>
-      <footer>Footer</footer>
+
+      <div id="footer-placeholder"></div>
+
+      <!-- <footer>Footer</footer> -->
     </div>
   </body>
 </html>

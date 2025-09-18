@@ -10,6 +10,8 @@
     <link rel="icon" type="image/x-icon" href="images/favicon-32x32.png" />
     <title>Checkout Page</title>
     <link rel="stylesheet" href="css/styles.css" />
+
+    <script type="module" src="/js/include-layout.js" defer></script>
     <script type="module" src="js/checkout.js" defer></script>
 
     <!-- font awesome link -->
@@ -20,14 +22,16 @@
   </head>
   <body>
     <div class="page-wrapper">
-      <header>
+      <div id="header-placeholder"></div>
+
+      <!-- <header>
         <div>
           <a class="link" href="index.html"
             ><p class="logo-text">&#10022;HotView</p>
             <p class="logo-text">Labs&#10022;</p></a
           >
         </div>
-      </header>
+      </header> -->
       <!-- mobile navigation -->
       <input type="checkbox" id="menu-checkbox" />
       <label for="menu-checkbox" class="hamburger-icon"
@@ -263,7 +267,10 @@
           </a>
         </div>
       </main>
-      <footer>Footer</footer>
+
+      <div id="footer-placeholder"></div>
+
+      <!-- <footer>Footer</footer> -->
     </div>
   </body>
 </html>

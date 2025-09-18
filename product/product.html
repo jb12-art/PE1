@@ -17,19 +17,23 @@
       src="https://kit.fontawesome.com/f96e83bcf8.js"
       crossorigin="anonymous"
     ></script>
-    <!-- <script src="js/script.js" defer></script> -->
+
+    <script type="module" src="/js/include-layout.js" defer></script>
     <script type="module" src="../js/product-detail.js" defer></script>
   </head>
   <body>
     <div class="page-wrapper">
-      <header>
+      <div id="header-placeholder"></div>
+
+      <!-- <header>
         <div>
           <a class="link" href="../index.html"
             ><p class="logo-text">&#10022;HotView</p>
             <p class="logo-text">Labs&#10022;</p></a
           >
         </div>
-      </header>
+      </header> -->
+
       <!-- mobile navigation -->
       <input type="checkbox" id="menu-checkbox" />
       <label for="menu-checkbox" class="hamburger-icon"
@@ -68,7 +72,10 @@
         </div>
         <div id="productContainer" class="product-detail-container"></div>
       </main>
-      <footer>Footer</footer>
+
+      <div id="footer-placeholder"></div>
+
+      <!-- <footer>Footer</footer> -->
     </div>
   </body>
 </html>

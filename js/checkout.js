@@ -2,13 +2,22 @@
 // checkout.js
 // checkout.css
 
-import { calculateCartTotal } from "./cart-utils.js";
+import { clearCart } from "./cart-utils.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   const totalText = document.getElementById("cart-total");
   if (totalText) {
     const total = calculateCartTotal();
     totalText.textContent = total.toFixed(2);
+  }
+
+  // handle Buy Now Button
+  const buyNowBtn = document.getElementById("buyNowBtn");
+  if (buyNowBtn) {
+    buyNowBtn.addEventListener("click", () => {
+      // Clear cart
+      clearCart();
+    });
   }
 });
 
