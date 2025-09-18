@@ -1,27 +1,18 @@
 // Shared Header / Footer to all .html pages
 
 async function loadLayout() {
-  // Dynamically find site base (Works both locally and on GitHub Pages)
-  const repoName = window.location.hostname.includes("github.io")
-    ? window.location.pathname.split("/")[1] + "/"
-    : "";
-
-  const siteBase = window.location.origin + "/" + repoName;
-
-  const headerURL = siteBase + "header.html";
-  const footerURL = siteBase + "footer.html";
+  const headerPlaceholder = document.getElementById("header-placeholder");
+  const footerPlaceholder = document.getElementById("footer-placeholder");
 
   try {
-    const headerPlaceholder = document.getElementById("header-placeholder");
     if (headerPlaceholder) {
-      const headerRes = await fetch(headerURL);
+      const headerRes = await fetch("header.html"); // adjust "../" based on folder depth
       if (!headerRes.ok) throw new Error("Failed to load header.html");
       headerPlaceholder.innerHTML = await headerRes.text();
     }
 
-    const footerPlaceholder = document.getElementById("footer-placeholder");
     if (footerPlaceholder) {
-      const footerRes = await fetch(footerURL);
+      const footerRes = await fetch("footer.html"); // adjust "../" based on folder depth
       if (!footerRes.ok) throw new Error("Failed to load footer.html");
       footerPlaceholder.innerHTML = await footerRes.text();
     }
