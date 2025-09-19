@@ -34,7 +34,7 @@ header {
   text-align: center;
   align-content: center;
   height: 100px;
-  background-color: #fbca9e;
+  background-color: #ffcba4;
 }
 
 .link {
@@ -42,7 +42,7 @@ header {
 }
 
 .logo-text {
-  background-color: #fbca9e;
+  background-color: #ffcba4;
   color: rgb(255, 255, 255);
   margin: 0px;
   font-size: 32px;
@@ -358,7 +358,7 @@ footer {
   flex-direction: column;
   align-items: center;
   padding: 20px;
-  background-color: #fbca9e;
+  background-color: #ffcba4;
   color: rgb(0, 0, 0);
 }
 

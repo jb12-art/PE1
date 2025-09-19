@@ -9,6 +9,7 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 8px 3px; /* reduce spacing for mobile */
+    margin: 0px 3px;
   }
 
   .box {
@@ -112,28 +113,27 @@
     color: black; /* discount color */
     font-weight: bold;
   }
-
 }
 
 .add-to-cart-button {
-    background-color: black;
-    color: gold;
-    padding: 10px 15px;
-    border-radius: 20px;
-    font-size: 15px;
-    border: 2px solid #000;
-    margin-right: 10px;
-    cursor: pointer;
-    transition: background-color 0.2s ease, transform 0.1s ease;
-  }
+  background-color: black;
+  color: gold;
+  padding: 10px 15px;
+  border-radius: 20px;
+  font-size: 15px;
+  border: 2px solid #000;
+  margin-right: 10px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
 
-  .add-to-cart-button:hover {
-    background-color: gold;
-    color: black;
-  }
+.add-to-cart-button:hover {
+  background-color: gold;
+  color: black;
+}
 
 .add-to-cart-button:active {
-    transform: scale(0.98); /* 98% of its original size */  
-    background-color: black;
-    color: gold;
+  transform: scale(0.98); /* 98% of its original size */
+  background-color: black;
+  color: gold;
 }
