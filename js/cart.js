@@ -5,8 +5,6 @@
 // checkout.html
 
 // cart.js
-// const container = document.querySelector("#productContainer");
-// const loadingIndicator = document.querySelector("#loadingIndicator");
 
 // Cart page logic - uses shared cart-utils.js
 import { renderCartPage, clearCart } from "./cart-utils.js";

@@ -8,7 +8,10 @@
 }
 
 /* All forms */
-.payment-form, .address-form, .register-form, .login-form {
+.payment-form,
+.address-form,
+.register-form,
+.login-form {
   margin: auto;
   max-width: 500px;
   width: 95%;
@@ -41,7 +44,8 @@ legend {
   margin-top: 5px;
 }
 
-.expiry-input-width, .cvv-input-length {
+.expiry-input-width,
+.cvv-input-length {
   max-width: 50px;
 }
 
@@ -63,27 +67,48 @@ legend {
   margin: auto;
 }
 
+/* Mobile */
+@media (max-width: 600px) {
+  .checkout-btn-container {
+    margin: auto;
+    display: flex;
+    /* flex-direction: column; */
+    align-items: center;
+    text-align: center;
+    justify-content: space-between;
+    margin-bottom: 50px;
+    max-width: 500px;
+    width: 95%;
+  }
+}
+
+/* Desktop */
 .checkout-btn-container {
-  margin: 50px auto;
+  margin: auto;
   display: flex;
-  justify-content: center;
+  align-items: center;
+  text-align: center;
+  justify-content: space-between;
+  margin-bottom: 50px;
+  max-width: 500px;
+  width: 95%;
 }
 
 .checkout-buy-btn {
-  display: inline-block;
-  padding: 10px 15px;
-  border: 1px solid black;
+  padding: 13px 18px;
   border-radius: 6px;
+  font-size: 15px;
+  cursor: pointer;
+  border: 1px solid black;
   text-decoration: none;
   color: black;
-  cursor: pointer;
   background-color: palegreen;
 }
 
 .checkout-buy-btn:hover {
-    background-color: rgb(127, 211, 127);
+  background-color: rgb(127, 211, 127);
 }
 
 .checkout-buy-btn:active {
-    background-color: palegreen;
+  background-color: palegreen;
 }

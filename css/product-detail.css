@@ -54,12 +54,13 @@
   gap: 8px;
 }
 
-.back-button, .share-button {
+.back-button,
+.share-button {
   padding: 10px 15px;
   border-radius: 6px;
   font-size: 15px;
   cursor: pointer;
-} 
+}
 
 .back-button {
   text-decoration: none;
@@ -90,7 +91,7 @@
 }
 
 .share-button:active {
-  transform: scale(0.98); /* 98% of its original size */ 
+  transform: scale(0.98); /* 98% of its original size */
   background-color: #de88f8;
 }
 
