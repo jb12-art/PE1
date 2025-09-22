@@ -82,7 +82,7 @@
 
 .original-price {
   text-decoration: line-through;
-  color: #999;
+  color: rgb(117, 117, 117);
   margin-right: 8px;
 }
 
@@ -98,10 +98,6 @@
   margin-left: 5px;
   font-size: 0.9rem;
   text-align: center;
-}
-
-.subtotal-cart {
-  text-decoration: underline;
 }
 
 .remove-button-cart {
