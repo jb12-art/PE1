@@ -140,10 +140,6 @@
   box-sizing: border-box;
 }
 
-.total-price span {
-  text-decoration: underline;
-}
-
 /* Clear Cart / Checkout */
 /* cart buttons div */
 .cart-btn-div {

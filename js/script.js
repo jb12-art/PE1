@@ -120,11 +120,10 @@ function displayProducts(products) {
     title.className = "title";
     price.className = "price";
 
-    // Image
+    // Image, with alt text describing the product
     const imgUrl = product?.image?.url || "";
-    const imgAlt = product?.image?.alt || product?.title || "Product image";
     image.src = imgUrl;
-    image.alt = imgAlt;
+    image.alt = `View details for ${product.title || "this product"}`;
 
     // Wrap grid product image in a link
     imageLink.href = `./product/product.html?id=${product.id}`;
@@ -179,7 +178,7 @@ function displayCarousel(products) {
     const image = document.createElement("img");
     image.className = "image";
     image.src = product?.image?.url || "";
-    image.alt = product?.image?.alt || product?.title || "Product image";
+    image.alt = `View details for ${product.title} || "this product"`; // alt text for linked image
 
     const title = document.createElement("h2");
     title.className = "title";

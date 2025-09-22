@@ -43,7 +43,7 @@ header {
 
 .logo-text {
   background-color: #ffcba4;
-  color: rgb(255, 255, 255);
+  color: rgb(113, 113, 113);
   margin: 0px;
   font-size: 32px;
   font-weight: bold;
@@ -272,7 +272,8 @@ nav a:hover {
 }
 
 /* H1 is shared by all pages*/
-h1 {
+h1,
+.h2-title {
   text-align: center;
 }
 

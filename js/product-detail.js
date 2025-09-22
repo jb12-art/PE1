@@ -31,7 +31,8 @@ async function fetchAndCreateProducts() {
     const id = params.get("id");
 
     if (!id) {
-      container.textContent = "Can't connect to server. (No product ID provided) Refresh the page or Try again later";
+      container.textContent =
+        "Can't connect to server. (No product ID provided) Refresh the page or Try again later";
       return;
     }
 
@@ -75,10 +76,11 @@ async function fetchAndCreateProducts() {
     // Fill content
     if (product.image && product.image.url) {
       image.src = product.image.url;
-      image.alt = product.image.alt || product.title;
+
+      image.alt = "";
     } else {
       image.src = "../images/placeholder.png"; //fallback image
-      image.alt = "No image available";
+      image.alt = "No image available"; // keep alt text for placeholder
     }
     title.textContent = product.title;
 
