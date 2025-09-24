@@ -237,7 +237,7 @@ nav a:hover {
 }
 
 .user-box {
-  display: none; /* hidden by default */
+  /* display: none; hidden by default */
   margin: auto; /* center horizontally like the buttons */
   margin-top: 16px;
   width: 200px; /* same as .register-login-div */

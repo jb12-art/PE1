@@ -51,6 +51,16 @@
         <div class="register-container">
           <div class="register-message" id="registerMessage"></div>
           <form id="registerForm" novalidate class="register-form">
+            <label for="nameRegistration">Enter a user name</label>
+            <input
+              class="input-height form__input"
+              type="name"
+              name="name"
+              id="nameRegistration"
+              required
+              placeholder="name"
+            />
+
             <label for="emailRegistration">Enter your email</label>
             <input
               class="input-height form__input"
@@ -73,7 +83,7 @@
               placeholder="password"
             />
             <small class="error-message" id="passwordError"></small>
-            <p class="reg-pass-text">At least 4 characters</p>
+            <p class="reg-pass-text">At least 8 characters</p>
 
             <div>
               <input class="register-btn" type="submit" value="Register" />

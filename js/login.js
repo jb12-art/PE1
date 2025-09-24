@@ -1,5 +1,4 @@
-//  Login, page 4
-//  connects to index.html, page 1
+// login.js
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.querySelector("#loginForm");
   const email = document.querySelector("#emailLogin");
@@ -8,24 +7,25 @@ document.addEventListener("DOMContentLoaded", () => {
   const passwordError = document.querySelector("#loginPasswordError");
   const loginMessage = document.querySelector("#loginMessage");
 
-  form.addEventListener("submit", (e) => {
+  const API_URL = "https://v2.api.noroff.dev/auth/login";
+
+  form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
+    // --- RESET ERRORS --- //
     emailError.textContent = "";
     passwordError.textContent = "";
     loginMessage.textContent = "";
-
-    const storedUser = JSON.parse(localStorage.getItem("registeredUser"));
-
-    if (!storedUser) {
-      loginMessage.textContent = "No account found. Please register first.";
-      return;
-    }
+    loginMessage.className = "";
 
     let isValid = true;
 
+    // --- VALIDATION --- //
     if (!email.value.trim()) {
       emailError.textContent = "Email is required.";
+      isValid = false;
+    } else if (!/^[\w-.]+@stud\.noroff\.no$/.test(email.value.trim())) {
+      emailError.textContent = "Email must be a valid stud.noroff.no address.";
       isValid = false;
     }
 
@@ -36,24 +36,49 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (!isValid) return;
 
-    if (
-      email.value.trim() === storedUser.email &&
-      password.value.trim() === storedUser.password
-    ) {
-      // Login success
-      loginMessage.textContent = "Login successful, redirecting to Home page";
-      loginMessage.style.color = "green";
+    // --- REQUEST PAYLOAD --- //
+    const payload = {
+      email: email.value.trim(),
+      password: password.value.trim(),
+    };
 
-      // Mark user as logged in
-      localStorage.setItem("isLoggedIn", "true");
+    try {
+      loginMessage.textContent = "🔄 Logging in...";
+      loginMessage.className = "loading";
 
-      // Rederecting to homepage after 2 second
+      const response = await fetch(API_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok || !result?.data) {
+        throw new Error(
+          result.errors?.[0]?.message || "Invalid login attempt."
+        );
+      }
+
+      // --- CLEAR OLD SESSION DATA --- //
+      localStorage.removeItem("cart");
+      localStorage.removeItem("accessToken");
+      localStorage.removeItem("user");
+
+      // --- SAVE NEW SESSION --- //
+      localStorage.setItem("accessToken", result.data.accessToken);
+      localStorage.setItem("user", JSON.stringify(result.data));
+
+      loginMessage.textContent = "✅ Login successful! Redirecting...";
+      loginMessage.className = "success";
+
       setTimeout(() => {
         window.location.href = "../index.html";
-      }, 2000);
-    } else {
-      loginMessage.textContent = "Invalid email or password.";
-      loginMessage.style.color = "red";
+      }, 1200);
+    } catch (error) {
+      console.error("Login error:", error);
+      loginMessage.textContent = `❌ ${error.message || "Could not connect."}`;
+      loginMessage.className = "error";
     }
   });
 });

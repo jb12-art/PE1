@@ -28,42 +28,42 @@ let latestProducts = [];
 let currentIndex = 0;
 
 // show/hide 'Login to add products to cart' text
-document.addEventListener("DOMContentLoaded", () => {
-  const helpText = document.querySelector(".help-text");
-  if (isUserLoggedIn() && helpText) {
-    helpText.style.display = "none";
-  }
-});
-
 // show email/username + logout button
 document.addEventListener("DOMContentLoaded", () => {
   const userBox = document.getElementById("userBox");
   const helpText = document.querySelector(".help-text");
   const regLogDiv = document.querySelector(".register-login-div");
 
-  if (isUserLoggedIn()) {
-    // Hide "Login to add products" text
+  const accessToken = localStorage.getItem("accessToken");
+  const userData = JSON.parse(localStorage.getItem("user"));
+
+  if (accessToken && userData) {
     if (helpText) helpText.style.display = "none";
-    // Hide Register/Login buttons
     if (regLogDiv) regLogDiv.style.display = "none";
 
-    // Show user box
-    const user = JSON.parse(localStorage.getItem("registeredUser"));
-    if (userBox && user) {
-      userBox.style.display = "block";
-      userBox.innerHTML = `${user.email} <button id="logoutBtn">Sign out</button>`;
+    userBox.classList.remove("hidden");
+    userBox.innerHTML = `
+    <span class="welcome-text">Hi, ${userData.name || userData.email}</span>
+    <button id="logoutBtn" class="logout-btn">Sign out</button>
+  `;
 
-      // Logout handler
-      document.getElementById("logoutBtn").addEventListener("click", () => {
-        localStorage.removeItem("isLoggedIn");
-        localStorage.removeItem("cart");
-        window.location.reload(); // refresh to update UI
-      });
-    }
+    // ✅ Improved Logout Handler
+    document.getElementById("logoutBtn").addEventListener("click", () => {
+      // Clear session data
+      localStorage.removeItem("accessToken");
+      localStorage.removeItem("user");
+      localStorage.removeItem("cart");
+
+      // Optional: small delay for UX (shows button feedback before reload)
+      document.getElementById("logoutBtn").textContent = "Signing out...";
+      setTimeout(() => {
+        window.location.reload();
+      }, 500);
+    });
   } else {
-    // If not logged in, show Register/Login buttons and hide user box
+    // Not logged in → show register/login buttons
     if (regLogDiv) regLogDiv.style.display = "flex";
-    if (userBox) userBox.style.display = "none";
+    if (userBox) userBox.classList.add("hidden");
   }
 });
 

@@ -1,22 +1,23 @@
 // cart-utils.js
 // Shared cart logic for index.html, product-detail.html, cart.html and checkout.html
 
-// Get cart
+// --- CART STORAGE --- //
 export function getCart() {
   return JSON.parse(localStorage.getItem("cart")) || [];
 }
 
-// Save Cart
 export function saveCart(cart) {
   localStorage.setItem("cart", JSON.stringify(cart));
 }
 
-// User Login Check
+// --- USER LOGIN CHECK --- //
 export function isUserLoggedIn() {
-  return localStorage.getItem("isLoggedIn") === "true";
+  const token = localStorage.getItem("accessToken");
+  const user = localStorage.getItem("user");
+  return !!(token && user); // true if both exist
 }
 
-// Add product to cart
+// --- ADD PRODUCT TO CART --- //
 export function addToCart(product) {
   if (!isUserLoggedIn()) {
     alert("Login to add items to your cart.");
@@ -43,9 +44,10 @@ export function addToCart(product) {
   }
 
   saveCart(cart);
+  updateBasketDisplay(); // update UI immediately after adding
 }
 
-// Update basket UI dropdown
+// --- UPDATE BASKET DROPDOWN --- //
 export function updateBasketDisplay() {
   const basketList = document.getElementById("basketList");
   if (!basketList) return;
@@ -61,13 +63,11 @@ export function updateBasketDisplay() {
   cart.forEach((item, index) => {
     const li = document.createElement("li");
 
-    // product title + quantity + subtotal
     const textSpan = document.createElement("span");
     textSpan.textContent = `${item.title} (x${item.quantity}) - $${(
       item.discountedPrice * item.quantity
     ).toFixed(2)}`;
 
-    // remove button
     const removeBtn = document.createElement("button");
     removeBtn.textContent = "Remove";
     removeBtn.className = "remove-button";
@@ -75,10 +75,10 @@ export function updateBasketDisplay() {
 
     removeBtn.addEventListener("click", () => {
       let cart = getCart();
-      cart.splice(index, 1); // remove item
+      cart.splice(index, 1);
       saveCart(cart);
-      updateBasketDisplay(); // refresh dropdown
-      renderCartPage(); // refresh cart page
+      updateBasketDisplay();
+      renderCartPage();
     });
 
     li.appendChild(textSpan);
@@ -87,7 +87,7 @@ export function updateBasketDisplay() {
   });
 }
 
-// Render Cart Page
+// --- RENDER FULL CART PAGE --- //
 export function renderCartPage() {
   const cartItemsContainer = document.getElementById("cart-items");
   const totalText = document.getElementById("cart-total");
@@ -98,7 +98,8 @@ export function renderCartPage() {
   cartItemsContainer.innerHTML = "";
 
   if (cart.length === 0) {
-    cartItemsContainer.innerHTML = "<p class='cart-empty-text'>Your cart is empty.</p>";
+    cartItemsContainer.innerHTML =
+      "<p class='cart-empty-text'>Your cart is empty.</p>";
     totalText.textContent = "0.00";
     return;
   }
@@ -124,18 +125,14 @@ export function renderCartPage() {
     const priceEl = document.createElement("p");
     priceEl.className = "price-cart";
 
-    priceEl.textContent = `Price: $${item.discountedPrice.toFixed(2)}`;
-
     if (item.discountedPrice < item.price) {
-      // Show original price crossed out + discounted price
       priceEl.innerHTML = `<span class="original-price">$${item.price.toFixed(
         2
       )}</span>
-        <span class="discounted-price">$${item.discountedPrice.toFixed(
-          2
-        )}</span>`;
+      <span class="discounted-price">$${item.discountedPrice.toFixed(
+        2
+      )}</span>`;
     } else {
-      // no discount, just original price
       priceEl.textContent = `Price: $${item.price.toFixed(2)}`;
     }
 
@@ -161,7 +158,6 @@ export function renderCartPage() {
     removeBtn.textContent = "Remove";
     removeBtn.dataset.index = index;
 
-    // assemble content
     content.appendChild(title);
     content.appendChild(priceEl);
     content.appendChild(qtyLabel);
@@ -177,7 +173,7 @@ export function renderCartPage() {
 
   totalText.textContent = total.toFixed(2);
 
-  // Quantity update
+  // Quantity change handler
   document.querySelectorAll(".qty-input").forEach((input) => {
     input.addEventListener("change", (e) => {
       const cart = getCart();
@@ -186,22 +182,26 @@ export function renderCartPage() {
       cart[i].quantity = newQty;
       saveCart(cart);
       renderCartPage();
+      updateBasketDisplay();
     });
   });
 
-  // Remove item
-  document.querySelectorAll(".remove-button, .remove-button-cart").forEach((btn) => {
-    btn.addEventListener("click", (e) => {
-      const cart = getCart();
-      const i = e.target.dataset.index;
-      cart.splice(i, 1);
-      saveCart(cart);
-      renderCartPage();
+  // Remove buttons
+  document
+    .querySelectorAll(".remove-button, .remove-button-cart")
+    .forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        const cart = getCart();
+        const i = e.target.dataset.index;
+        cart.splice(i, 1);
+        saveCart(cart);
+        renderCartPage();
+        updateBasketDisplay();
+      });
     });
-  });
 }
 
-// Total price in checkout.html
+// --- TOTAL FOR CHECKOUT --- //
 export function calculateCartTotal() {
   const cart = getCart();
   return cart.reduce(
@@ -210,7 +210,7 @@ export function calculateCartTotal() {
   );
 }
 
-// Clear cart
+// --- CLEAR CART --- //
 export function clearCart() {
   localStorage.removeItem("cart");
   updateBasketDisplay();

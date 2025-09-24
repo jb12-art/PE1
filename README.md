@@ -2,5 +2,6 @@ Project Exam 1
 
 Register and login to add product to cart.
 
-E.g. Email: 1@1.com
-E.g. Password: 1234
+Username: jobjo
+Email: jo_bjo@stud.noroff.no
+Password: 12345678
