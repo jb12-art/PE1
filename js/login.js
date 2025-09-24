@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     try {
-      loginMessage.textContent = "🔄 Logging in...";
+      loginMessage.textContent = "Logging in...";
       loginMessage.className = "loading";
 
       const response = await fetch(API_URL, {
@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
       localStorage.setItem("accessToken", result.data.accessToken);
       localStorage.setItem("user", JSON.stringify(result.data));
 
-      loginMessage.textContent = "✅ Login successful! Redirecting...";
+      loginMessage.textContent = "✅Login successful! Redirecting...";
       loginMessage.className = "success";
 
       setTimeout(() => {
