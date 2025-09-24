@@ -22,6 +22,22 @@ body {
   min-height: 100vh;
 }
 
+/* Register */
+.error {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 50px;
+  color: green;
+}
+
+/* login */
+.success {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 50px;
+  color: green;
+}
+
 /* many shares this */
 .error-message {
   color: red;

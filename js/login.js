@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
       localStorage.setItem("user", JSON.stringify(result.data));
 
       loginMessage.textContent = "✅Login successful! Redirecting...";
-      loginMessage.className = "success";
+      loginMessage.classList.add("success"); // add instead of overwrite
 
       setTimeout(() => {
         window.location.href = "../index.html";
