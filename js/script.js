@@ -47,21 +47,21 @@ document.addEventListener("DOMContentLoaded", () => {
     <button id="logoutBtn" class="logout-btn">Sign out</button>
   `;
 
-    // ✅ Improved Logout Handler
+    // Logout Handler
     document.getElementById("logoutBtn").addEventListener("click", () => {
       // Clear session data
       localStorage.removeItem("accessToken");
       localStorage.removeItem("user");
       localStorage.removeItem("cart");
 
-      // Optional: small delay for UX (shows button feedback before reload)
+      // small delay for UX (shows button feedback before reload)
       document.getElementById("logoutBtn").textContent = "Signing out...";
       setTimeout(() => {
         window.location.reload();
       }, 500);
     });
   } else {
-    // Not logged in → show register/login buttons
+    // Not logged in - show register/login buttons
     if (regLogDiv) regLogDiv.style.display = "flex";
     if (userBox) userBox.classList.add("hidden");
   }
@@ -251,6 +251,6 @@ if (basketToggle && basketDropdown) {
   });
 }
 
-// Init
+// Initiate/ start
 fetchAndCreateProducts();
 updateBasketDisplay(); // Refresh dropdown UI
