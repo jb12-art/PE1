@@ -67,6 +67,22 @@ legend {
   margin: auto;
 }
 
+.input-error {
+  border: 1px solid red;
+  background-color: #ffe6e6;
+}
+
+.form-error-message {
+  color: red;
+  font-size: 0.9rem;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.form-error-message.hidden {
+  display: none;
+}
+
 /* Mobile */
 @media (max-width: 600px) {
   .checkout-btn-container {
