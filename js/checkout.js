@@ -13,16 +13,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // handle Buy Now Button
   const buyNowBtn = document.getElementById("buyNowBtn");
-
-  // error message below the Buy Now button
-  const errorMessage = document.createElement("p");
-  errorMessage.id = "formErrorMessage";
-  errorMessage.className = "form-error-message hidden";
-  errorMessage.textContent = "Fill out all required fields.";
-  buyNowBtn.parentNode.appendChild(errorMessage);
+  const errorMessage = document.getElementById("formErrorMessage");
 
   if (buyNowBtn) {
-    buyNowBtn.addEventListener("click", () => {
+    buyNowBtn.addEventListener("click", (e) => {
       // 1) Grab all required inputs
       const requiredInputs = document.querySelectorAll(
         ".payment-form input[required], .address-form input[required]"
@@ -38,14 +32,14 @@ document.addEventListener("DOMContentLoaded", () => {
       });
 
       if (!allValid) {
-        event.preventDefault(); // Stop navigation to success.html
+        e.preventDefault(); // Stop navigation to success.html
         errorMessage.classList.remove("hidden");
         return;
       }
 
       // 2) If valid - proceed with checkout
       errorMessage.classList.add("hidden"); // hide message if valid
-      clearCart(); // clear cart before navigating
+      clearCart(); // clear cart before/when navigating to success.html
     });
 
     // Remove error highlight when user starts typing
